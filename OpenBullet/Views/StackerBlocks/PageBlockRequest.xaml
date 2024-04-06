@@ -1,0 +1,448 @@
+<Page
+	x:Class="OpenBullet.Views.StackerBlocks.PageBlockRequest"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="PageBlockRequest"
+	Margin="0,0,1,0"
+	xmlns:stackerblocks="clr-namespace:OpenBullet.Views.StackerBlocks">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<Storyboard
+				x:Key="WaitForAnalyze">
+				<DoubleAnimation
+					RepeatBehavior="Forever"
+					Storyboard.TargetName="analyzeIcon"
+					Storyboard.TargetProperty="(RenderTransform).(RotateTransform.Angle)"
+					From="0"
+					To="360"
+					Duration="0:0:2" />
+			</Storyboard>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<StackPanel>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<Label
+					Content="URL:" />
+				<TextBox
+					Grid.Column="1"
+					Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}" />
+				<Button
+					Grid.Column="2"
+					ToolTip="Analyze login page"
+					Click="AnalyzeLoginPage_Click">
+					<DockPanel>
+						<Path
+							x:Name="analyzeIcon"
+							Width="16"
+							Height="16"
+							Margin="0"
+							VerticalAlignment="Stretch"
+							Data="M197.376,581.205 C214.52800000000002,621.909 239.104,658.389 270.336,689.6210000000001 C301.73900000000003,720.9810000000001 338.219,745.5570000000001 378.795,762.5810000000001 C461.355,797.3970000000002 557.184,797.8660000000001 640.3420000000001,764.3300000000002 C642.3470000000001,706.9430000000002 688.8110000000001,661.3330000000002 746.6670000000001,661.3330000000002 C805.8030000000001,661.3330000000002 853.3340000000002,708.8640000000001 853.3340000000002,768.0000000000002 C853.3340000000002,827.1360000000003 805.8030000000002,874.6670000000003 746.6670000000001,874.6670000000003 C717.2700000000001,874.6670000000003 690.6880000000001,862.8910000000003 671.4460000000001,843.7340000000003 C567.7230000000002,885.2490000000003 448.5980000000001,884.6090000000003 345.68600000000015,841.2170000000002 C294.9130000000001,819.8840000000002 249.25900000000013,789.1640000000002 210.00600000000014,749.9530000000002 C170.92300000000014,710.9130000000002 140.24600000000015,665.2600000000002 118.78500000000014,614.3580000000002 C96.59800000000014,561.7500000000002 85.33400000000015,505.7710000000002 85.33400000000015,448.0010000000002 L170.66700000000014,448.0010000000002 C170.66700000000014,494.3370000000002 179.67000000000013,539.1370000000002 197.37600000000015,581.2060000000002 M826.581,314.795 C809.472,274.17600000000004 784.896,237.654 753.621,206.37900000000002 C722.346,175.10400000000004 685.824,150.52800000000002 645.162,133.41900000000004 C562.5590000000001,98.60300000000004 466.73,98.13400000000004 383.615,131.67000000000004 C381.652,189.05700000000004 335.188,234.66700000000003 277.332,234.66700000000003 C218.196,234.66700000000003 170.665,187.13600000000002 170.665,128.00000000000003 C170.665,68.86400000000003 218.196,21.333000000000027 277.332,21.333000000000027 C306.729,21.333000000000027 333.311,33.10900000000002 352.553,52.26600000000003 C403.198,31.914000000000026 456.745,21.333000000000027 511.998,21.333000000000027 C569.769,21.333000000000027 625.7049999999999,32.59700000000002 678.27,54.74100000000003 C729.129,76.20200000000003 774.825,106.92200000000003 813.95,146.04800000000003 C853.075,185.17400000000004 883.7950000000001,230.82700000000003 905.2570000000001,281.68500000000006 C927.4010000000001,334.29300000000006 938.6650000000001,390.22900000000004 938.6650000000001,448.00000000000006 L853.3320000000001,448.00000000000006 C853.3320000000001,401.70700000000005 844.3290000000001,356.90700000000004 826.5800000000002,314.7950000000001 M512,641.621 C405.248,641.621 318.379,554.752 318.379,448 C318.379,341.24800000000005 405.24800000000005,254.379 512,254.379 C618.752,254.379 705.621,341.248 705.621,448 C705.621,554.752 618.752,641.621 512,641.621 Z"
+							Fill="{DynamicResource ForegroundMain}"
+							RenderTransformOrigin="0.5, 0.5"
+							Stretch="Fill"
+							Stroke="{DynamicResource BackgroundMain}">
+							<UIElement.RenderTransform>
+								<RotateTransform
+									Angle="0" />
+							</UIElement.RenderTransform>
+						</Path>
+						<TextBlock
+							Margin="3,0,0,0"
+							VerticalAlignment="Center"
+							Text="Analyze" />
+					</DockPanel>
+				</Button>
+			</Grid>
+			<Grid
+				Margin="0,5,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="30" />
+					<RowDefinition
+						Height="30" />
+					<RowDefinition
+						Height="30" />
+				</Grid.RowDefinitions>
+				<DockPanel
+					Grid.Row="0"
+					Grid.Column="0"
+					Grid.ColumnSpan="2">
+					<Label
+						Content="Method:" />
+					<ComboBox
+						x:Name="methodCombobox"
+						SelectionChanged="methodCombobox_SelectionChanged" />
+				</DockPanel>
+				<CheckBox
+					Grid.Row="0"
+					Grid.Column="2"
+					VerticalContentAlignment="Center"
+					Content="Auto Redirect"
+					IsChecked="{Binding AutoRedirect}" />
+				<CheckBox
+					Grid.Row="1"
+					Grid.Column="0"
+					VerticalContentAlignment="Center"
+					Content="Read Resp. Source"
+					IsChecked="{Binding ReadResponseSource}" />
+				<CheckBox
+					Grid.Row="1"
+					Grid.Column="1"
+					VerticalContentAlignment="Center"
+					Content="Accept-Encoding"
+					IsChecked="{Binding AcceptEncoding}" />
+				<CheckBox
+					Grid.Row="1"
+					Grid.Column="2"
+					VerticalContentAlignment="Center"
+					Content="Encode Content"
+					IsChecked="{Binding EncodeContent}" />
+				<CheckBox
+					Grid.Row="2"
+					VerticalContentAlignment="Center"
+					Content="Allow Empty Header Values"
+					IsChecked="{Binding AllowEmptyHeaderValues}" />
+				<CheckBox
+					Grid.Row="2"
+					Grid.ColumnSpan="2"
+					VerticalContentAlignment="Center"
+					Content="Allow Empty Header Values"
+					IsChecked="{Binding AllowEmptyHeaderValues}" />
+			</Grid>
+			<DockPanel>
+				<Label
+					Content="Protocol Version:" />
+				<ComboBox
+					x:Name="protocolVersionComboBox"
+					Margin="3,0,0,0"
+					IsEditable="True"
+					SelectionChanged="ProtocolVersionComboBox_SelectionChanged"
+					TextBoxBase.TextChanged="ProtocolVersionComboBox_TextChanged" />
+			</DockPanel>
+			<DockPanel>
+				<Label
+					Content="Security Protocol:" />
+				<ComboBox
+					x:Name="securityProtocolCombobox"
+					SelectionChanged="securityProtocolCombobox_SelectionChanged" />
+			</DockPanel>
+			<DockPanel
+				Margin="0,5,0,0">
+				<Label
+					Content="Request Type:"
+					Foreground="{DynamicResource ForegroundCustom}" />
+				<ComboBox
+					x:Name="requestTypeCombobox"
+					SelectionChanged="requestTypeCombobox_SelectionChanged" />
+			</DockPanel>
+			<TabControl
+				x:Name="requestTypeTabControl"
+				Background="#00FFFFFF"
+				BorderThickness="0">
+				<ItemsControl.ItemContainerStyle>
+					<Style
+						TargetType="{x:Type TabItem}">
+						<Setter
+							Property="Visibility"
+							Value="Collapsed" />
+					</Style>
+				</ItemsControl.ItemContainerStyle>
+				<TabItem
+					x:Name="emptyTab">
+					<StackPanel />
+				</TabItem>
+				<TabItem
+					x:Name="basicAuthTab">
+					<StackPanel>
+						<DockPanel
+							Margin="0,5,0,0">
+							<Label
+								Content="Username:" />
+							<TextBox
+								Text="{Binding AuthUser, UpdateSourceTrigger=PropertyChanged}" />
+						</DockPanel>
+						<DockPanel
+							Margin="0,5,0,0">
+							<Label
+								Content="Password:" />
+							<TextBox
+								Text="{Binding AuthPass, UpdateSourceTrigger=PropertyChanged}" />
+						</DockPanel>
+					</StackPanel>
+				</TabItem>
+				<TabItem
+					x:Name="standardTab">
+					<StackPanel>
+						<DockPanel
+							Margin="0,5,0,0">
+							<Label
+								Content="POST Data:" />
+							<TextBox
+								Text="{Binding PostData, UpdateSourceTrigger=PropertyChanged}" />
+						</DockPanel>
+						<DockPanel
+							Margin="0,5,0,0">
+							<Label
+								Content="Content-Type:" />
+							<ComboBox
+								x:Name="contentTypeCombobox"
+								IsEditable="True"
+								Text="{Binding ContentType}" />
+						</DockPanel>
+					</StackPanel>
+				</TabItem>
+				<TabItem
+					x:Name="multipartTab">
+					<StackPanel>
+						<DockPanel>
+							<Label
+								Content="Boundary (random if empty):" />
+							<TextBox
+								Text="{Binding MultipartBoundary, UpdateSourceTrigger=PropertyChanged}" />
+						</DockPanel>
+						<Label
+							Content="Multipart Contents:" />
+						<RichTextBox
+							x:Name="multipartContentsRTB"
+							Height="60"
+							Background="{DynamicResource BackgroundSecondary}"
+							FontFamily="Consolas"
+							Foreground="{DynamicResource ForegroundMain}"
+							VerticalScrollBarVisibility="Auto"
+							LostFocus="multipartContentsRTB_LostFocus">
+							<FrameworkElement.Resources>
+								<ResourceDictionary>
+									<Style
+										x:Key="{x:Type Paragraph}"
+										TargetType="{x:Type Paragraph}">
+										<Setter
+											Property="Block.Margin"
+											Value="0" />
+									</Style>
+								</ResourceDictionary>
+							</FrameworkElement.Resources>
+							<FrameworkElement.ToolTip>
+								<TextBlock>Syntax:<LineBreak />STRING:fieldname:fieldvalue<LineBreak />FILE:fieldname:filepath:content-type</TextBlock>
+							</FrameworkElement.ToolTip>
+						</RichTextBox>
+					</StackPanel>
+				</TabItem>
+				<TabItem
+					x:Name="rawTab">
+					<StackPanel>
+						<DockPanel
+							Margin="0,5,0,0">
+							<Label
+								Content="Raw HEX Data:" />
+							<TextBox
+								Text="{Binding RawData, UpdateSourceTrigger=PropertyChanged}" />
+						</DockPanel>
+						<DockPanel
+							Margin="0,5,0,0">
+							<Label
+								Content="Content-Type:" />
+							<TextBox
+								Text="{Binding ContentType, UpdateSourceTrigger=PropertyChanged}" />
+						</DockPanel>
+					</StackPanel>
+				</TabItem>
+			</TabControl>
+			<StackPanel>
+				<Label
+					Content="Custom Cookies:" />
+				<RichTextBox
+					x:Name="customCookiesRTB"
+					Height="100"
+					Background="{DynamicResource BackgroundSecondary}"
+					FontFamily="Consolas"
+					Foreground="{DynamicResource ForegroundMain}"
+					VerticalScrollBarVisibility="Auto"
+					LostFocus="customCookiesRTB_LostFocus">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								x:Key="{x:Type Paragraph}"
+								TargetType="{x:Type Paragraph}">
+								<Setter
+									Property="Block.Margin"
+									Value="0" />
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+					<FrameworkElement.ToolTip>
+						<TextBlock>Syntax:<LineBreak />name: value</TextBlock>
+					</FrameworkElement.ToolTip>
+				</RichTextBox>
+				<Label
+					Content="Custom Headers:" />
+				<RichTextBox
+					x:Name="customHeadersRTB"
+					Height="100"
+					Background="{DynamicResource BackgroundSecondary}"
+					FontFamily="Consolas"
+					Foreground="{DynamicResource ForegroundMain}"
+					VerticalScrollBarVisibility="Auto"
+					LostFocus="customHeadersRTB_LostFocus">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								x:Key="{x:Type Paragraph}"
+								TargetType="{x:Type Paragraph}">
+								<Setter
+									Property="Block.Margin"
+									Value="0" />
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+					<FrameworkElement.ToolTip>
+						<TextBlock>Syntax:<LineBreak />name: value</TextBlock>
+					</FrameworkElement.ToolTip>
+				</RichTextBox>
+				<Grid
+					Margin="0,6,0,0"
+					Visibility="Collapsed">
+					<CheckBox
+						Margin="0,1,0,0"
+						Padding="1,1,0,0"
+						VerticalAlignment="Top"
+						VerticalContentAlignment="Center"
+						Panel.ZIndex="1"
+						Content="Akamai"
+						Cursor="Arrow"
+						IsChecked="{Binding UseAkamai}"
+						Click="CheckBox_Click" />
+					<Expander
+						Name="expander"
+						Padding="5,0,5,10"
+						materialDesign:ExpanderAssist.HorizontalHeaderPadding="4 4 10 4"
+						Background="{DynamicResource BackgroundSecondary}"
+						BorderBrush="{DynamicResource AccordionBorderBrush}"
+						BorderThickness="1"
+						Foreground="{DynamicResource ForegroundMain}"
+						Style="{StaticResource MaterialDesignExpander}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="auto" />
+								<RowDefinition
+									Height="auto" />
+								<RowDefinition
+									Height="auto" />
+								<RowDefinition
+									Height="auto" />
+								<RowDefinition
+									Height="auto" />
+							</Grid.RowDefinitions>
+							<Separator
+								Margin="-5,0,-5,8"
+								Background="{DynamicResource AccordionBorderBrush}" />
+							<DockPanel
+								Grid.Row="1">
+								<Label
+									Content="URL Sensor:" />
+								<TextBox
+									Text="{Binding URLSensor}" />
+							</DockPanel>
+							<DockPanel
+								Grid.Row="2"
+								Margin="0,5,0,0">
+								<Label
+									Content="Authorization:" />
+								<TextBox
+									Text="{Binding N4SAuth}" />
+							</DockPanel>
+							<DockPanel
+								Grid.Row="3"
+								Margin="0,5,0,0">
+								<Label
+									Content="Data Session:" />
+								<TextBox
+									Text="{Binding DataSession}" />
+							</DockPanel>
+							<DockPanel
+								Grid.Row="4"
+								Margin="0,5,0,0">
+								<Label
+									Content="Sensor Data Out:" />
+								<TextBox
+									Text="{Binding SensorDataOut}" />
+							</DockPanel>
+						</Grid>
+					</Expander>
+				</Grid>
+			</StackPanel>
+			<DockPanel
+				Margin="0,5,0,0">
+				<Label
+					Content="Response Type:"
+					Foreground="{DynamicResource ForegroundCustom}" />
+				<ComboBox
+					x:Name="responseTypeCombobox"
+					SelectionChanged="responseTypeCombobox_SelectionChanged" />
+			</DockPanel>
+			<TabControl
+				x:Name="responseTypeTabControl"
+				Background="#00FFFFFF"
+				BorderThickness="0">
+				<ItemsControl.ItemContainerStyle>
+					<Style
+						TargetType="{x:Type TabItem}">
+						<Setter
+							Property="Visibility"
+							Value="Collapsed" />
+					</Style>
+				</ItemsControl.ItemContainerStyle>
+				<TabItem
+					x:Name="emptyTab2">
+					<StackPanel />
+				</TabItem>
+				<TabItem
+					x:Name="fileTab">
+					<StackPanel>
+						<DockPanel>
+							<Label
+								Content="File Path:" />
+							<TextBox
+								Text="{Binding DownloadPath, UpdateSourceTrigger=PropertyChanged}" />
+						</DockPanel>
+						<CheckBox
+							VerticalContentAlignment="Center"
+							Content="Save as screenshot"
+							IsChecked="{Binding SaveAsScreenshot}" />
+					</StackPanel>
+				</TabItem>
+				<TabItem
+					x:Name="base64Tab">
+					<StackPanel>
+						<DockPanel>
+							<Label
+								Content="Output Variable:" />
+							<TextBox
+								Text="{Binding OutputVariable, UpdateSourceTrigger=PropertyChanged}" />
+						</DockPanel>
+					</StackPanel>
+				</TabItem>
+			</TabControl>
+		</StackPanel>
+	</Grid>
+</Page>

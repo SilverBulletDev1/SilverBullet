@@ -1,0 +1,21 @@
+<UserControl
+	x:Class="OpenBullet.Views.UserControls.Filters.UserControlResize"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Margin="0,-6,0,0"
+	xmlns:filters="clr-namespace:OpenBullet.Views.UserControls.Filters">
+	<StackPanel>
+		<Label
+			Content="Width:" />
+		<TextBox
+			Name="WidthTextBox"
+			TextChanged="TextBox_TextChanged" />
+		<Label
+			Content="Height:" />
+		<TextBox
+			Name="HeightTextBox"
+			TextChanged="TextBox_TextChanged" />
+	</StackPanel>
+</UserControl>

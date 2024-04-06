@@ -1,0 +1,950 @@
+<Page
+	x:Class="OpenBullet.Views.Main.Configs.Stacker"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+	xmlns:avalonEditCodeCompletion="clr-namespace:ICSharpCode.AvalonEdit.CodeCompletion;assembly=ICSharpCode.AvalonEdit"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:eo="http://schemas.essentialobjects.com/wpf/"
+	xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Stacker"
+	xmlns:configs="clr-namespace:OpenBullet.Views.Main.Configs"
+	KeyDown="Page_KeyDown"
+	Loaded="Page_Loaded">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="3.94*" />
+			<ColumnDefinition
+				Width="2.2*" />
+		</Grid.ColumnDefinitions>
+		<TabControl
+			x:Name="stackerTabControl"
+			Grid.Column="0"
+			Background="#00FFFFFF"
+			BorderThickness="0">
+			<ItemsControl.ItemContainerStyle>
+				<Style
+					TargetType="{x:Type TabItem}">
+					<Setter
+						Property="Visibility"
+						Value="Collapsed" />
+				</Style>
+			</ItemsControl.ItemContainerStyle>
+			<TabItem
+				x:Name="codeTab">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="*" />
+						<ColumnDefinition
+							Width="2*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="35" />
+						<RowDefinition
+							Height="*" />
+						<RowDefinition
+							Height="40" />
+					</Grid.RowDefinitions>
+					<Button
+						HorizontalAlignment="Left"
+						Click="Button_Click">
+						<DockPanel>
+							<iconPacks:PackIconMaterial
+								Margin="0,0,3,0"
+								Kind="FindReplace" />
+							<TextBlock>Find &amp; Replace</TextBlock>
+						</DockPanel>
+					</Button>
+					<Label
+						Grid.Row="0"
+						Grid.ColumnSpan="2"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						FontFamily="pack://application:,,,/Fonts/#Century Gothic"
+						FontWeight="Bold"
+						Foreground="{DynamicResource ForegroundToCheck}">
+						<DockPanel>
+							<iconPacks:PackIconMaterial
+								Kind="ScriptOutline" />
+							<TextBlock
+								Margin="3,0,0,0">LoliScript Code</TextBlock>
+						</DockPanel>
+					</Label>
+					<Button
+						Grid.ColumnSpan="2"
+						Margin="0,0,0,0"
+						HorizontalAlignment="Right"
+						Click="Compile_Click">
+						<DockPanel>
+							<iconPacks:PackIconMaterialDesign
+								Margin="0,0,5,0"
+								Foreground="#FFFFFAF0"
+								Kind="Build" />
+							<TextBlock
+								Foreground="#FFFFFAF0">Compile</TextBlock>
+						</DockPanel>
+					</Button>
+					<avalonEdit:TextEditor
+						x:Name="loliScriptEditor"
+						Grid.Row="1"
+						Grid.ColumnSpan="2"
+						HorizontalAlignment="Stretch"
+						Background="#111"
+						FontFamily="Consolas"
+						FontSize="10pt"
+						Foreground="#FFDCDCDC"
+						MaxHeight="{Binding ActualHeight, ElementName=dockParent}"
+						LostFocus="loliScriptEditor_LostFocus"
+						TextChanged="loliScriptEditor_TextChanged">
+						<FrameworkElement.Resources>
+							<ResourceDictionary>
+								<Style
+									x:Key="{x:Type avalonEditCodeCompletion:CompletionWindow}"
+									TargetType="{x:Type avalonEditCodeCompletion:CompletionWindow}">
+									<Setter
+										Property="Background"
+										Value="{DynamicResource BackgroundMain}" />
+									<Setter
+										Property="Foreground"
+										Value="{DynamicResource ForegroundMain}" />
+								</Style>
+							</ResourceDictionary>
+						</FrameworkElement.Resources>
+					</avalonEdit:TextEditor>
+					<Button
+						x:Name="stackButton"
+						Grid.Row="2"
+						Click="stackButton_Click">
+						<StackPanel
+							Orientation="Horizontal">
+							<Image
+								Width="15"
+								Source="/Images/Icons/stack.png" />
+							<TextBlock
+								Margin="5,0"
+								VerticalAlignment="Center">SWITCH TO STACK VIEW</TextBlock>
+						</StackPanel>
+					</Button>
+					<Button
+						x:Name="openDocButton"
+						Grid.Row="2"
+						Grid.Column="1"
+						Click="openDocButton_Click">
+						<StackPanel
+							Orientation="Horizontal">
+							<Image
+								Width="20"
+								RenderOptions.BitmapScalingMode="HighQuality"
+								Source="/Images/Icons/book.png" />
+							<TextBlock
+								Margin="5,0"
+								VerticalAlignment="Center">Documentation</TextBlock>
+						</StackPanel>
+					</Button>
+				</Grid>
+			</TabItem>
+			<TabItem
+				x:Name="stackTab">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="1.05*" />
+						<ColumnDefinition
+							Width="2*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="30" />
+						<RowDefinition
+							Height="30" />
+						<RowDefinition
+							Height="30" />
+						<RowDefinition
+							Height="*" />
+						<RowDefinition
+							Height="40" />
+					</Grid.RowDefinitions>
+					<Label
+						Grid.Row="0"
+						Grid.Column="0"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						FontFamily="pack://application:,,,/Fonts/#Century Gothic"
+						FontWeight="Bold"
+						Foreground="{DynamicResource ForegroundToCheck}">
+						<DockPanel>
+							<Path
+								Width="19"
+								Height="17"
+								Margin="0,0,3,0"
+								VerticalAlignment="Center"
+								Data="M2.69918,11.0204 L11.3673,4.2481 L20.3008,11.2277 L11.6327,18 L2.69918,11.0204 M18.7007,11.2089 L11.3914,5.49827 L4.32346,11.0204 L11.6327,16.731 L18.7007,11.2089 M11.6327,21 L2.69921,14.0204 L3.48723,13.4047 L11.6086,19.7498 L19.4887,13.5932 L20.3008,14.2277 L11.6327,21 Z"
+								Fill="{DynamicResource ForegroundToCheck}"
+								Stretch="Fill" />
+							<TextBlock
+								VerticalAlignment="Center">Current Stack</TextBlock>
+						</DockPanel>
+					</Label>
+					<Label
+						Grid.Row="0"
+						Grid.Column="1"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						FontFamily="pack://application:,,,/Fonts/#Century Gothic"
+						FontWeight="Bold"
+						Foreground="{DynamicResource ForegroundGood}">
+						<DockPanel>
+							<iconPacks:PackIconFontAwesome
+								Height="15"
+								Margin="0,-1,0,0"
+								Kind="InfoSolid" />
+							<TextBlock
+								VerticalAlignment="Center">Block Info</TextBlock>
+						</DockPanel>
+					</Label>
+					<DockPanel
+						Grid.Row="1"
+						Grid.Column="1"
+						Margin="5,0">
+						<Label
+							VerticalAlignment="Center"
+							Content="Label:"
+							DockPanel.Dock="Left" />
+						<TextBox
+							x:Name="labelTextbox"
+							DockPanel.Dock="Left"
+							IsEnabled="{Binding ControlsEnabled}"
+							TextChanged="labelTextbox_TextChanged" />
+					</DockPanel>
+					<Grid
+						Row="1"
+						Column="0"
+						Margin="0,2,0,0"
+						VerticalAlignment="Center">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="1.3*" />
+							<ColumnDefinition
+								Width="1.2*" />
+							<ColumnDefinition
+								Width="1.1*" />
+							<ColumnDefinition
+								Width="1.2*" />
+							<ColumnDefinition
+								Width="1.1*" />
+							<ColumnDefinition
+								Width="1.1*" />
+							<ColumnDefinition
+								Width="1.1*" />
+						</Grid.ColumnDefinitions>
+						<FrameworkElement.Resources>
+							<ResourceDictionary>
+								<Style
+									x:Key="{x:Type Grid}"
+									TargetType="{x:Type Grid}">
+									<Setter
+										Property="VerticalAlignment"
+										Value="Center" />
+									<Setter
+										Property="Background"
+										Value="{DynamicResource BackgroundMain}" />
+								</Style>
+							</ResourceDictionary>
+						</FrameworkElement.Resources>
+						<Grid
+							Column="0"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Cursor="Hand"
+							ToolTip="Add a new block"
+							IsEnabled="{Binding ControlsEnabled}"
+							MouseDown="AddBlock_MouseDown"
+							MouseEnter="Image_MouseEnter"
+							MouseLeave="Image_MouseLeave">
+							<iconPacks:PackIconMaterial
+								Width="24"
+								Height="24"
+								Foreground="#FFFFFFFF"
+								Kind="PlusThick" />
+						</Grid>
+						<Grid
+							Column="1"
+							Margin="0,0,1,0"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Cursor="Hand"
+							ToolTip="Remove the selected block(s)"
+							IsEnabled="{Binding ControlsEnabled}"
+							MouseDown="RemoveBlock_MouseDown"
+							MouseEnter="Image_MouseEnter"
+							MouseLeave="Image_MouseLeave">
+							<iconPacks:PackIconMicrons
+								Width="24"
+								Height="24"
+								Foreground="#FFFFFFFF"
+								Kind="MinusInline" />
+						</Grid>
+						<Grid
+							Column="2"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Cursor="Hand"
+							ToolTip="Disable / Enable the selected block(s)"
+							IsEnabled="{Binding ControlsEnabled}"
+							MouseDown="DisableBlock_MouseDown"
+							MouseEnter="Image_MouseEnter"
+							MouseLeave="Image_MouseLeave">
+							<iconPacks:PackIconMaterial
+								x:Name="disOrEnableIcon"
+								Width="24"
+								Height="24"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Foreground="#FFFFFFFF"
+								Kind="CloseCircleOutline" />
+						</Grid>
+						<Grid
+							Column="3"
+							Width="30"
+							Margin="2,0,0,0"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Cursor="Hand"
+							ToolTip="Clone the selected block(s)"
+							IsEnabled="{Binding ControlsEnabled}"
+							MouseDown="CloneBlock_MouseDown"
+							MouseEnter="Image_MouseEnter"
+							MouseLeave="Image_MouseLeave">
+							<iconPacks:PackIconFontAwesome
+								Width="24"
+								Height="24"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Foreground="#FFFFFFFF"
+								Kind="CloneRegular"
+								RenderOptions.BitmapScalingMode="Linear" />
+						</Grid>
+						<Grid
+							Column="4"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Cursor="Hand"
+							ToolTip="Move the selected block(s) up"
+							IsEnabled="{Binding ControlsEnabled}"
+							MouseDown="MoveUpBlock_MouseDown"
+							MouseEnter="Image_MouseEnter"
+							MouseLeave="Image_MouseLeave">
+							<iconPacks:PackIconZondicons
+								Width="24"
+								Height="24"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Foreground="#FFFFFFFF"
+								Kind="ArrowThickUp" />
+						</Grid>
+						<Grid
+							Column="5"
+							Margin="0,2,0,0"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Cursor="Hand"
+							ToolTip="Move the selected block(s) down"
+							IsEnabled="{Binding ControlsEnabled}"
+							MouseDown="MoveDownBlock_MouseDown"
+							MouseEnter="Image_MouseEnter"
+							MouseLeave="Image_MouseLeave">
+							<iconPacks:PackIconZondicons
+								Width="24"
+								Height="24"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Foreground="#FFFFFFFF"
+								Kind="ArrowThickDown" />
+						</Grid>
+						<Grid
+							Column="6"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Cursor="Hand"
+							ToolTip="Save the config"
+							IsEnabled="{Binding ControlsEnabled}"
+							MouseDown="SaveConfig_MouseDown"
+							MouseEnter="Image_MouseEnter"
+							MouseLeave="Image_MouseLeave">
+							<iconPacks:PackIconFontAwesome
+								x:Name="iconSave"
+								Width="24"
+								Height="24"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Foreground="#FFFFFFFF"
+								Kind="SaveSolid" />
+						</Grid>
+					</Grid>
+					<ScrollViewer
+						Grid.Row="3"
+						Grid.Column="0"
+						Margin="0,0,2,0"
+						VerticalScrollBarVisibility="auto">
+						<ListBox
+							x:Name="stackListView"
+							Background="#00FFFFFF"
+							ItemsSource="{Binding Stack}"
+							SelectedItem="{Binding SelectedItem}">
+							<ItemsControl.ItemContainerStyle>
+								<Style
+									TargetType="{x:Type ListBoxItem}">
+									<Setter
+										Property="Template">
+										<Setter.Value>
+											<ControlTemplate
+												TargetType="{x:Type ListBoxItem}">
+												<ContentPresenter />
+											</ControlTemplate>
+										</Setter.Value>
+									</Setter>
+								</Style>
+							</ItemsControl.ItemContainerStyle>
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<ToggleButton
+										FontFamily="pack://application:,,,/Fonts/#Century Gothic"
+										FontWeight="Regular"
+										Height="{Binding Height}"
+										Content="{Binding Block.Label}"
+										FontSize="{Binding FontSize}"
+										Foreground="{Binding Foreground}"
+										IsEnabled="{Binding ControlsEnabled}"
+										Tag="{Binding Id}"
+										IsChecked="{Binding Mode=TwoWay, Path=IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"
+										Click="blockClicked">
+										<FrameworkElement.Style>
+											<Style
+												TargetType="{x:Type ToggleButton}">
+												<Setter
+													Property="Template">
+													<Setter.Value>
+														<ControlTemplate
+															TargetType="{x:Type ToggleButton}">
+															<Border
+																BorderThickness="2"
+																Background="{Binding Color}"
+																BorderBrush="{Binding BorderColor}">
+																<ContentPresenter
+																	HorizontalAlignment="Center"
+																	VerticalAlignment="Center" />
+															</Border>
+														</ControlTemplate>
+													</Setter.Value>
+												</Setter>
+												<Style.Triggers>
+													<Trigger
+														Property="ToggleButton.IsChecked"
+														Value="True">
+														<Setter
+															Property="Background"
+															Value="{Binding Color}" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</FrameworkElement.Style>
+									</ToggleButton>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ListBox>
+					</ScrollViewer>
+					<ScrollViewer
+						x:Name="blockInfoScrollViewer"
+						Grid.Row="3"
+						Grid.RowSpan="2"
+						Grid.Column="1"
+						Margin="2,0">
+						<Frame
+							x:Name="BlockInfo" />
+					</ScrollViewer>
+					<Button
+						x:Name="loliScriptButton"
+						Grid.Row="4"
+						Margin="0,0,2,0"
+						Click="loliScriptButton_Click">
+						<StackPanel
+							Orientation="Horizontal">
+							<Image
+								Width="20"
+								Source="/Images/Icons/code.png" />
+							<TextBlock
+								Margin="5,0"
+								VerticalAlignment="Center">SWITCH TO LOLISCRIPT</TextBlock>
+						</StackPanel>
+					</Button>
+				</Grid>
+			</TabItem>
+		</TabControl>
+		<Grid
+			Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="30" />
+				<RowDefinition
+					Height="30" />
+				<RowDefinition
+					Height="30" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Label
+				Grid.Row="0"
+				Margin="0,-4,0,0"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				FontFamily="pack://application:,,,/Fonts/#Century Gothic"
+				FontWeight="Bold"
+				Foreground="{DynamicResource ForegroundCustom}">
+				<DockPanel>
+					<iconPacks:PackIconFontAwesome
+						VerticalAlignment="Center"
+						Kind="BugSolid" />
+					<TextBlock
+						Margin="3,1,0,0">Debugger</TextBlock>
+				</DockPanel>
+			</Label>
+			<DockPanel
+				Grid.Row="1"
+				Margin="3,0">
+				<Button
+					x:Name="startDebuggerButton"
+					DockPanel.Dock="Left"
+					ToolTip="Start the Debugger"
+					Click="startDebuggerButton_Click">
+					<DockPanel>
+						<iconPacks:PackIconMaterial
+							Name="startDebuggerButtonIcon"
+							Height="13"
+							Margin="-5,0,0,0"
+							VerticalAlignment="Center"
+							Kind="Play" />
+						<TextBlock
+							Name="startDebuggerButtonLabel"
+							Text="Start" />
+					</DockPanel>
+				</Button>
+				<CheckBox
+					Padding="0"
+					VerticalContentAlignment="Center"
+					Content="SBS"
+					DockPanel.Dock="Left"
+					ToolTip="Step By Step"
+					IsChecked="{Binding SBS}"
+					IsEnabled="{Binding ControlsEnabled}" />
+				<Separator
+					Width="18"
+					Margin="-3,11"
+					Background="{DynamicResource ForegroundMain}"
+					RenderTransformOrigin="0.5,0.5">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform
+								Angle="-90.323" />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+				</Separator>
+				<Label
+					Margin="-5,0,0,0"
+					VerticalAlignment="Center"
+					Content="Data:"
+					DockPanel.Dock="Left" />
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="*" />
+						<ColumnDefinition
+							Width="0.6*" />
+					</Grid.ColumnDefinitions>
+					<TextBox
+						Grid.Column="0"
+						DockPanel.Dock="Left"
+						IsEnabled="{Binding ControlsEnabled}"
+						Text="{Binding TestData}" />
+					<ComboBox
+						x:Name="testDataTypeCombobox"
+						Grid.Column="1"
+						DockPanel.Dock="Left"
+						IsEnabled="{Binding ControlsEnabled}"
+						Text="{Binding TestDataType}"
+						SelectionChanged="testDataTypeCombobox_SelectionChanged" />
+				</Grid>
+			</DockPanel>
+			<DockPanel
+				Grid.Row="2"
+				Margin="4,0">
+				<Button
+					x:Name="nextStepButton"
+					Grid.Row="3"
+					Margin="-1,0,4,0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Top"
+					Panel.ZIndex="1"
+					DockPanel.Dock="Left"
+					ToolTip="Take another Step"
+					Width="{Binding ElementName=startDebuggerButton, Path=ActualWidth}"
+					IsEnabled="{Binding SBSEnabled}"
+					Click="nextStepButton_Click">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="auto" />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<iconPacks:PackIconMaterial
+							Margin="-8,0,0,0"
+							Kind="DebugStepOver" />
+						<TextBlock
+							Grid.Column="1"
+							Margin="3,0,-5,0"
+							Text="Step" />
+					</Grid>
+				</Button>
+				<Label
+					Margin="0,0,0,1"
+					VerticalAlignment="Center"
+					Content="Proxy:"
+					DockPanel.Dock="Left" />
+				<CheckBox
+					Margin="-1,0,5,0"
+					Padding="0"
+					VerticalContentAlignment="Center"
+					DockPanel.Dock="Left"
+					ToolTip="Enable/Disable the Proxy"
+					Content="{Binding UseProxyString}"
+					Foreground="{Binding UseProxyColor}"
+					IsChecked="{Binding UseProxy}"
+					IsEnabled="{Binding ControlsEnabled}" />
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="*" />
+						<ColumnDefinition
+							Width="0.6*" />
+					</Grid.ColumnDefinitions>
+					<TextBox
+						Grid.Column="0"
+						IsEnabled="{Binding ControlsEnabled}"
+						Text="{Binding TestProxy}">
+						<FrameworkElement.ToolTip>
+							<TextBlock>In order to use Auth or Chain, start the line with the proxy type between round brackets.<LineBreak />Auth:<LineBreak />(http)127.0.0.1:8888:username:password<LineBreak />Chain:<LineBreak />(socks4)127.0.0.1:8000-&gt;(http)127.0.0.1:8888</TextBlock>
+						</FrameworkElement.ToolTip>
+					</TextBox>
+					<ComboBox
+						x:Name="proxyTypeCombobox"
+						Grid.Column="1"
+						IsEnabled="{Binding ControlsEnabled}"
+						SelectionChanged="proxyTypeCombobox_SelectionChanged" />
+				</Grid>
+			</DockPanel>
+			<TabControl
+				x:Name="debuggerTabControl"
+				Grid.Row="3"
+				Margin="0,4,0,0"
+				Background="{DynamicResource BackgroundMain}"
+				KeyDown="debuggerTabControl_KeyDown">
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<Style
+							x:Key="{x:Type TabItem}"
+							TargetType="{x:Type TabItem}">
+							<Setter
+								Property="Background"
+								Value="{DynamicResource BackgroundMain}" />
+							<Setter
+								Property="Foreground"
+								Value="{DynamicResource ForegroundMain}" />
+							<Setter
+								Property="Template">
+								<Setter.Value>
+									<ControlTemplate
+										TargetType="{x:Type TabItem}">
+										<Grid>
+											<Border
+												Name="Border"
+												Margin="0,0,-4,0"
+												Background="{DynamicResource BackgroundMain}"
+												BorderBrush="{DynamicResource ForegroundMain}"
+												BorderThickness="1,1,1,1"
+												CornerRadius="2,12,0,0">
+												<ContentPresenter
+													x:Name="ContentSite"
+													Margin="12,2,12,2"
+													HorizontalAlignment="Center"
+													VerticalAlignment="Center"
+													ContentSource="Header"
+													RecognizesAccessKey="True" />
+											</Border>
+										</Grid>
+										<ControlTemplate.Triggers>
+											<Trigger
+												Property="TabItem.IsSelected"
+												Value="True">
+												<Setter
+													Property="Panel.ZIndex"
+													Value="100" />
+												<Setter
+													TargetName="Border"
+													Value="{DynamicResource BackgroundSecondary}"
+													Property="Border.Background" />
+												<Setter
+													TargetName="Border"
+													Property="Border.BorderThickness"
+													Value="1,1,1,0" />
+											</Trigger>
+											<Trigger
+												Property="IsEnabled"
+												Value="False">
+												<Setter
+													TargetName="Border"
+													Value="{DynamicResource BackgroundMain}"
+													Property="Border.Background" />
+												<Setter
+													TargetName="Border"
+													Value="{DynamicResource ForegroundMain}"
+													Property="Border.BorderBrush" />
+												<Setter
+													Value="{DynamicResource ForegroundMain}"
+													Property="Foreground" />
+											</Trigger>
+										</ControlTemplate.Triggers>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+						<Style
+							x:Key="{x:Type TabPanel}"
+							TargetType="{x:Type TabPanel}">
+							<Setter
+								Property="Background"
+								Value="{DynamicResource BackgroundMain}" />
+						</Style>
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+				<TabItem>
+					<HeaderedContentControl.Header>
+						<DockPanel>
+							<iconPacks:PackIconMaterialDesign
+								Kind="DataUsage" />
+							<TextBlock
+								Margin="4,0,0,0"
+								Text="Data" />
+						</DockPanel>
+					</HeaderedContentControl.Header>
+					<RichTextBox
+						x:Name="dataRTB"
+						Background="#111"
+						FontFamily="Consolas"
+						FontSize="14"
+						IsReadOnly="True"
+						VerticalScrollBarVisibility="Visible">
+						<FrameworkElement.Resources>
+							<ResourceDictionary>
+								<Style
+									x:Key="{x:Type Paragraph}"
+									TargetType="{x:Type Paragraph}">
+									<Setter
+										Property="Block.Margin"
+										Value="0" />
+								</Style>
+							</ResourceDictionary>
+						</FrameworkElement.Resources>
+					</RichTextBox>
+				</TabItem>
+				<TabItem>
+					<HeaderedContentControl.Header>
+						<DockPanel>
+							<iconPacks:PackIconFontAwesome
+								Kind="HistorySolid" />
+							<TextBlock
+								Margin="4,0,0,0"
+								Text="Log" />
+						</DockPanel>
+					</HeaderedContentControl.Header>
+					<Grid
+						x:Name="logGrid"
+						Background="{DynamicResource BackgroundMain}">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="*" />
+							<RowDefinition
+								Height="30" />
+						</Grid.RowDefinitions>
+						<avalonEdit:TextEditor
+							x:Name="logRTB"
+							Grid.Row="0"
+							Padding="5,1,0,0"
+							Background="#111"
+							FontFamily="Consolas"
+							FontSize="10.4pt"
+							HorizontalScrollBarVisibility="Auto"
+							IsReadOnly="True"
+							VerticalScrollBarVisibility="Auto"
+							WordWrap="True">
+							<FrameworkElement.ContextMenu>
+								<ContextMenu>
+									<MenuItem
+										Command="ApplicationCommands.Copy"
+										Icon="{iconPacks:FontAwesome Kind=CopySolid}" />
+									<MenuItem
+										Command="ApplicationCommands.SelectAll">
+										<MenuItem.Icon>
+											<iconPacks:PackIconModern
+												Kind="ListSelect" />
+										</MenuItem.Icon>
+									</MenuItem>
+									<MenuItem
+										Header="Clear"
+										Click="MenuItem_Click">
+										<MenuItem.Icon>
+											<iconPacks:PackIconMaterial
+												Kind="CloseCircle" />
+										</MenuItem.Icon>
+									</MenuItem>
+									<MenuItem
+										Header="Open in Notepad"
+										Click="MenuItem_Click_1">
+										<MenuItem.Icon>
+											<iconPacks:PackIconFontAwesome
+												Kind="FileAltRegular" />
+										</MenuItem.Icon>
+									</MenuItem>
+								</ContextMenu>
+							</FrameworkElement.ContextMenu>
+						</avalonEdit:TextEditor>
+						<Grid
+							Row="1">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="auto" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="auto" />
+								<ColumnDefinition
+									Width="auto" />
+								<ColumnDefinition
+									Width="auto" />
+								<ColumnDefinition
+									Width="auto" />
+								<ColumnDefinition
+									Width="auto" />
+								<ColumnDefinition
+									Width="auto" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								VerticalAlignment="Center"
+								Content="Search:" />
+							<TextBox
+								Grid.Column="1"
+								Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}"
+								KeyDown="TextBox_KeyDown"
+								TextChanged="TextBox_TextChanged" />
+							<Button
+								x:Name="searchButton"
+								Grid.Column="2"
+								Click="searchButton_Click">
+								<DockPanel>
+									<iconPacks:PackIconIonicons
+										Kind="SearchMD" />
+									<TextBlock
+										Margin="4,0,0,0">GO</TextBlock>
+								</DockPanel>
+							</Button>
+							<Image
+								x:Name="previousMatchButton"
+								Grid.Column="3"
+								Width="20"
+								Height="20"
+								Margin="5,0"
+								RenderOptions.BitmapScalingMode="HighQuality"
+								Source="/Images/Icons/left.png"
+								MouseDown="previousMatchButton_MouseDown" />
+							<Label
+								Grid.Column="4"
+								Content="{Binding CurrentSearchMatch}" />
+							<Label
+								Grid.Column="5"
+								Content="of" />
+							<Label
+								Grid.Column="6"
+								Content="{Binding TotalSearchMatches}" />
+							<Image
+								x:Name="nextMatchButton"
+								Grid.Column="7"
+								Width="20"
+								Height="20"
+								Margin="5,0"
+								RenderOptions.BitmapScalingMode="HighQuality"
+								Source="/Images/Icons/right.png"
+								MouseDown="nextMatchButton_MouseDown" />
+						</Grid>
+					</Grid>
+				</TabItem>
+				<TabItem
+					x:Name="htmlViewTab">
+					<HeaderedContentControl.Header>
+						<DockPanel>
+							<iconPacks:PackIconFontAwesome
+								Kind="CodeSolid" />
+							<TextBlock
+								Margin="4,0,0,0"
+								Text="Browser" />
+						</DockPanel>
+					</HeaderedContentControl.Header>
+					<Grid
+						Background="#FFFFFFFF"
+						MouseDown="Grid_MouseDown">
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition
+								Height="auto" />
+						</Grid.RowDefinitions>
+						<eo:WebControl
+							x:Name="webControl"
+							Background="{DynamicResource BackgroundMain}"
+							Foreground="{DynamicResource ForegroundMain}">
+							<eo:WebControl.WebView>
+								<eo:WebView
+									x:Name="webView"
+									AllowDropLoad="False"
+									BeforeNavigate="WebView_BeforeNavigate"
+									LoadCompleted="WebView_LoadCompleted" />
+							</eo:WebControl.WebView>
+						</eo:WebControl>
+						<DockPanel
+							Grid.Row="1"
+							MaxHeight="30"
+							Margin="0,0,3,3"
+							VerticalAlignment="Center">
+							<Label
+								VerticalAlignment="Center"
+								Background="{DynamicResource BackgroundMain}"
+								Content="Status:"
+								FontSize="13"
+								FontWeight="Bold"
+								Foreground="#FFFFFFFF" />
+							<TextBox
+								Name="browserStatus"
+								VerticalAlignment="Center"
+								IsReadOnly="True"
+								Text="Idle" />
+						</DockPanel>
+					</Grid>
+				</TabItem>
+			</TabControl>
+		</Grid>
+	</Grid>
+</Page>

@@ -1,0 +1,59 @@
+<Application
+	x:Class="OpenBullet.App"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:openbullet="clr-namespace:OpenBullet">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+				<ResourceDictionary
+					Source="Themes/MetroDark/MetroDark.MSControls.Core.Implicit.xaml" />
+				<ResourceDictionary
+					Source="Themes/MetroDark/MetroDark.MSControls.Toolkit.Implicit.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<SolidColorBrush
+				x:Key="ThemeMain"
+				Color="#1E90FF" />
+			<SolidColorBrush
+				x:Key="BackgroundMain"
+				Color="#222" />
+			<SolidColorBrush
+				x:Key="BackgroundSecondary"
+				Color="#111" />
+			<SolidColorBrush
+				x:Key="ForegroundMain"
+				Color="Gainsboro" />
+			<SolidColorBrush
+				x:Key="ForegroundGood"
+				Color="GreenYellow" />
+			<SolidColorBrush
+				x:Key="ForegroundBad"
+				Color="Tomato" />
+			<SolidColorBrush
+				x:Key="ForegroundCustom"
+				Color="DarkOrange" />
+			<SolidColorBrush
+				x:Key="ForegroundRetry"
+				Color="Yellow" />
+			<SolidColorBrush
+				x:Key="ForegroundToCheck"
+				Color="Aquamarine" />
+			<SolidColorBrush
+				x:Key="ForegroundOcrRate"
+				Color="#FF8CC6FF" />
+			<SolidColorBrush
+				x:Key="ForegroundMenuSelected"
+				Color="DodgerBlue" />
+			<SolidColorBrush
+				x:Key="Headers" />
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

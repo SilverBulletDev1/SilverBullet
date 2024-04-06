@@ -1,0 +1,194 @@
+<Page
+	x:Class="OpenBullet.Views.StackerBlocks.PageBlockKeycheck"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+	xmlns:local="clr-namespace:OpenBullet.Views.StackerBlocks"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="PageBlockKeycheck">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<StackPanel
+			Grid.Row="0"
+			VerticalAlignment="Top">
+			<DockPanel>
+				<CheckBox
+					VerticalContentAlignment="Center"
+					Content="Insta Ban 4xx"
+					IsChecked="{Binding Block.BanOn4XX}" />
+				<CheckBox
+					VerticalContentAlignment="Center"
+					Content="Ban if no key found"
+					IsChecked="{Binding Block.BanOnToCheck}" />
+			</DockPanel>
+			<DockPanel
+				Background="{DynamicResource BackgroundMain}">
+				<Label
+					Content="Keychains:" />
+				<Grid
+					Margin="0,2,0,0"
+					HorizontalAlignment="Left"
+					Background="#00FFFFFF"
+					Cursor="Hand"
+					MouseDown="addKeychainImage_MouseDown"
+					MouseEnter="addKeychainImage_MouseEnter"
+					MouseLeave="addKeychainImage_MouseLeave">
+					<iconPacks:PackIconMaterial
+						x:Name="addKeychainIcon"
+						Width="16"
+						Height="21"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Foreground="#FFFFFFFF"
+						Kind="PlusThick" />
+				</Grid>
+			</DockPanel>
+		</StackPanel>
+		<ScrollViewer
+			Name="keychainsScrollViewer"
+			Grid.Row="1"
+			CanContentScroll="True"
+			VerticalScrollBarVisibility="Auto">
+			<ItemsControl
+				x:Name="keychainsControl"
+				Grid.Row="1"
+				ItemsSource="{Binding KeychainList}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel
+							Orientation="Vertical" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Grid
+							Margin="5"
+							Background="{Binding KeychainColor}">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="38" />
+								<RowDefinition
+									Height="40" />
+								<RowDefinition
+									Height="145" />
+							</Grid.RowDefinitions>
+							<StackPanel
+								Grid.Row="0"
+								Orientation="Horizontal">
+								<Image
+									x:Name="removeKeychainImage"
+									Width="15"
+									Height="15"
+									Margin="2,0,0,0"
+									Source="/Images/Icons/minus.png"
+									Tag="{Binding Id}"
+									MouseDown="removeKeychainImage_MouseDown" />
+								<Label
+									Content="Type:" />
+								<ComboBox
+									x:Name="keychainTypeCombobox"
+									Tag="{Binding Id}"
+									Loaded="keychainTypeCombobox_Loaded"
+									SelectionChanged="keychainTypeCombobox_SelectionChanged" />
+								<Label
+									Content="Mode:" />
+								<ComboBox
+									x:Name="keychainModeCombobox"
+									Tag="{Binding Id}"
+									Loaded="keychainModeCombobox_Loaded"
+									SelectionChanged="keychainModeCombobox_SelectionChanged" />
+							</StackPanel>
+							<StackPanel
+								Grid.Row="1"
+								Margin="0,5"
+								Orientation="Horizontal">
+								<DockPanel
+									Visibility="{Binding CustomVisibility}">
+									<Label
+										Content="Custom Type:" />
+									<ComboBox
+										x:Name="customTypeCombobox"
+										MinWidth="55"
+										MaxWidth="115"
+										IsEditable="True"
+										Text="CUSTOM"
+										Tag="{Binding Id}"
+										Loaded="customTypeCombobox_Loaded"
+										SelectionChanged="customTypeCombobox_SelectionChanged"
+										TextBoxBase.TextChanged="customTypeCombobox_TextChanged" />
+								</DockPanel>
+								<Label
+									Content="Keys" />
+								<Image
+									x:Name="addKeyImage"
+									Width="15"
+									Height="15"
+									Source="/Images/Icons/plus.png"
+									Tag="{Binding Id}"
+									MouseDown="addKeyImage_MouseDown" />
+							</StackPanel>
+							<ScrollViewer
+								Grid.Row="2">
+								<ItemsControl
+									ItemsSource="{Binding KeyList}">
+									<ItemsControl.ItemsPanel>
+										<ItemsPanelTemplate>
+											<StackPanel
+												Orientation="Vertical" />
+										</ItemsPanelTemplate>
+									</ItemsControl.ItemsPanel>
+									<ItemsControl.ItemTemplate>
+										<DataTemplate>
+											<Grid>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition
+														Width="auto" />
+													<ColumnDefinition
+														Width="*" />
+													<ColumnDefinition
+														Width="auto" />
+													<ColumnDefinition
+														Width="*" />
+												</Grid.ColumnDefinitions>
+												<Image
+													x:Name="removeKeyImage"
+													Grid.Column="0"
+													Width="15"
+													Height="15"
+													Margin="2,0,1,0"
+													Source="/Images/Icons/minus.png"
+													Tag="{Binding Id}"
+													MouseDown="removeKeyImage_MouseDown" />
+												<ComboBox
+													x:Name="leftTermCombobox"
+													Grid.Column="1"
+													IsEditable="True"
+													Tag="{Binding Id}"
+													Text="{Binding LeftTerm}"
+													Loaded="leftTermCombobox_Loaded" />
+												<ComboBox
+													x:Name="conditionCombobox"
+													Grid.Column="2"
+													Tag="{Binding Id}"
+													Loaded="conditionCombobox_Loaded"
+													SelectionChanged="conditionCombobox_SelectionChanged" />
+												<TextBox
+													Grid.Column="3"
+													Text="{Binding RightTerm, UpdateSourceTrigger=PropertyChanged}" />
+											</Grid>
+										</DataTemplate>
+									</ItemsControl.ItemTemplate>
+								</ItemsControl>
+							</ScrollViewer>
+						</Grid>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+	</Grid>
+</Page>

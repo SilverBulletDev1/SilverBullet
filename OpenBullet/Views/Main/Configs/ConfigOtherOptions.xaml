@@ -1,0 +1,138 @@
+<Page
+	x:Class="OpenBullet.Views.Main.Configs.ConfigOtherOptions"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+	xmlns:local="clr-namespace:OpenBullet.Views.Main.Configs"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="ConfigOtherOptions">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="30" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel
+			x:Name="topMenu"
+			Orientation="Horizontal">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						x:Key="{x:Type Label}"
+						TargetType="{x:Type Label}">
+						<Setter
+							Property="FontWeight"
+							Value="Bold" />
+						<Setter
+							Property="Margin"
+							Value="0,0,2,0" />
+						<Setter
+							Property="Foreground"
+							Value="{DynamicResource ForegroundMain}" />
+						<Setter
+							Property="FontFamily"
+							Value="pack://application:,,,/Fonts/#Century Gothic" />
+						<Setter
+							Property="FontSize"
+							Value="12" />
+						<Setter
+							Property="VerticalAlignment"
+							Value="Center" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<Label
+				x:Name="menuOptionGeneral"
+				MouseDown="menuOptionGeneral_MouseDown">
+				<DockPanel>
+					<iconPacks:PackIconMaterial
+						Margin="0,0,3,0"
+						Kind="Earth" />
+					<TextBlock>General</TextBlock>
+				</DockPanel>
+			</Label>
+			<Label
+				x:Name="menuOptionRequests"
+				MouseDown="menuOptionRequests_MouseDown">
+				<DockPanel>
+					<Path
+						Width="14"
+						Height="15"
+						Margin="0,0,4,0"
+						VerticalAlignment="Center"
+						Data="M11.78,14.91 C11.78,15.7 11.969999999999999,16.42 12.35,17.08 C12.73,17.74 13.25,18.27 13.92,18.65 C14.59,19.029999999999998 15.31,19.229999999999997 16.1,19.229999999999997 C16.290000000000003,19.229999999999997 16.450000000000003,19.159999999999997 16.580000000000002,19.009999999999998 C16.71,18.869999999999997 16.78,18.7 16.78,18.499999999999996 C16.78,18.309999999999995 16.71,18.149999999999995 16.580000000000002,18.019999999999996 C16.450000000000003,17.889999999999997 16.290000000000003,17.829999999999995 16.090000000000003,17.829999999999995 C15.280000000000003,17.829999999999995 14.590000000000003,17.549999999999994 14.020000000000003,16.979999999999993 C13.450000000000003,16.409999999999993 13.170000000000003,15.719999999999994 13.170000000000003,14.909999999999993 C13.170000000000003,14.129999999999994 13.440000000000003,13.459999999999994 13.970000000000004,12.889999999999993 C14.500000000000005,12.319999999999993 15.130000000000004,12.029999999999994 15.850000000000005,12.029999999999994 L15.520000000000005,12.349999999999994 C15.370000000000005,12.499999999999995 15.300000000000004,12.659999999999995 15.310000000000004,12.839999999999995 C15.310000000000004,13.019999999999994 15.380000000000004,13.179999999999994 15.510000000000003,13.319999999999995 C15.640000000000004,13.459999999999996 15.800000000000002,13.529999999999996 16.000000000000004,13.529999999999996 C16.200000000000003,13.529999999999996 16.370000000000005,13.459999999999996 16.510000000000005,13.319999999999995 L18.020000000000007,11.819999999999995 C18.150000000000006,11.709999999999996 18.220000000000006,11.549999999999995 18.220000000000006,11.309999999999995 C18.220000000000006,11.089999999999995 18.150000000000006,10.929999999999994 18.020000000000007,10.839999999999995 L16.510000000000005,9.309999999999995 C16.380000000000006,9.169999999999995 16.220000000000006,9.099999999999994 16.020000000000007,9.099999999999994 C15.820000000000007,9.099999999999994 15.660000000000007,9.169999999999995 15.520000000000007,9.309999999999995 C15.380000000000006,9.449999999999996 15.310000000000006,9.609999999999996 15.310000000000006,9.809999999999995 C15.310000000000006,10.019999999999996 15.380000000000006,10.189999999999996 15.530000000000006,10.319999999999995 L15.830000000000007,10.599999999999994 C14.680000000000007,10.679999999999994 13.720000000000008,11.129999999999994 12.940000000000007,11.949999999999994 C12.17,12.77 11.78,13.76 11.78,14.91 Z"
+						Stretch="Fill"
+						Fill="{Binding ElementName=menuOptionRequests, Path=Foreground}" />
+					<TextBlock>Requests</TextBlock>
+				</DockPanel>
+			</Label>
+			<Label
+				x:Name="menuOptionProxies"
+				MouseDown="menuOptionProxies_MouseDown">
+				<DockPanel>
+					<Path
+						Width="14"
+						Height="15"
+						Margin="0,0,5,0"
+						VerticalAlignment="Center"
+						Data="M853.333,832 L170.66599999999994,832 C123.56199999999994,832 85.33299999999994,793.771 85.33299999999994,746.667 L85.33299999999994,576 C85.33299999999994,528.896 123.56199999999994,490.66700000000003 170.66599999999994,490.66700000000003 L853.333,490.66700000000003 C900.437,490.66700000000003 938.6659999999999,528.8960000000001 938.6659999999999,576 L938.6659999999999,746.667 C938.6659999999999,793.7710000000001 900.4369999999999,832 853.333,832 M640,618.667 L554.667,618.667 L554.667,704 L640,704 L640,618.667 M810.667,618.667 L725.3340000000001,618.667 L725.3340000000001,704 L810.667,704 L810.667,618.667 M853.333,405.333 L170.66599999999994,405.333 C123.56199999999994,405.333 85.33299999999994,367.10400000000004 85.33299999999994,320 L85.33299999999994,149.333 C85.33299999999994,102.229 123.56199999999994,64 170.66599999999994,64 L853.333,64 C900.437,64 938.6659999999999,102.229 938.6659999999999,149.333 L938.6659999999999,320 C938.6659999999999,367.104 900.4369999999999,405.33299999999997 853.333,405.33299999999997 M640,192 L554.667,192 L554.667,277.33299999999997 L640,277.33299999999997 L640,191.99999999999997 M810.667,192 L725.3340000000001,192 L725.3340000000001,277.33299999999997 L810.667,277.33299999999997 L810.667,191.99999999999997 Z"
+						Stretch="Fill"
+						Fill="{Binding ElementName=menuOptionProxies, Path=Foreground}" />
+					<TextBlock>Proxies</TextBlock>
+				</DockPanel>
+			</Label>
+			<Label
+				x:Name="menuOptionInput"
+				MouseDown="menuOptionInput_MouseDown">
+				<DockPanel>
+					<iconPacks:PackIconModern
+						Width="17"
+						Margin="0,0,4,0"
+						Kind="Input" />
+					<TextBlock>Input</TextBlock>
+				</DockPanel>
+			</Label>
+			<Label
+				x:Name="menuOptionData"
+				MouseDown="menuOptionData_MouseDown">
+				<DockPanel>
+					<iconPacks:PackIconMaterialDesign
+						Margin="0,0,4,0"
+						Kind="DataUsage" />
+					<TextBlock>Data</TextBlock>
+				</DockPanel>
+			</Label>
+			<Label
+				x:Name="menuOptionSelenium"
+				MouseDown="menuOptionSelenium_MouseDown">
+				<DockPanel>
+					<Path
+						Width="14"
+						Height="15"
+						Margin="0,0,5,0"
+						VerticalAlignment="Center"
+						Data="M5,3 L6,3 L6,4 L5,4 L5,3 M3,3 L4,3 L4,4 L3,4 L3,3 M1,3 L2,3 L2,4 L1,4 L1,3 M13,13 L1,13 L1,5 L13,5 L13,13 M13,4 L7,4 L7,3 L13,3 L13,4 M14,3 C14,2.45 13.55,2 13,2 L1,2 C0.44999999999999996,2 0,2.45 0,3 L0,13 C0,13.55 0.45,14 1,14 L13,14 C13.55,14 14,13.55 14,13 L14,3 Z"
+						Stretch="Fill"
+						Fill="{Binding ElementName=menuOptionSelenium, Path=Foreground}" />
+					<TextBlock>Selenium</TextBlock>
+				</DockPanel>
+			</Label>
+			<Label
+				x:Name="menuOptionBuildExe"
+				MouseDown="menuOptionCompile_MouseDown">
+				<DockPanel>
+					<iconPacks:PackIconMaterial
+						Margin="0,0,3,0"
+						Kind="WrenchOutline" />
+					<TextBlock>Compile</TextBlock>
+				</DockPanel>
+			</Label>
+		</StackPanel>
+		<Frame
+			x:Name="Main"
+			Grid.Row="1"
+			NavigationUIVisibility="Hidden" />
+	</Grid>
+</Page>

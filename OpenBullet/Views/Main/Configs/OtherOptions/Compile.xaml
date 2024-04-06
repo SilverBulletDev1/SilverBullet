@@ -1,0 +1,320 @@
+<Page
+	x:Class="OpenBullet.Views.Main.Configs.OtherOptions.Compile"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	Title="Compile"
+	xmlns:otheroptions="clr-namespace:OpenBullet.Views.Main.Configs.OtherOptions">
+	<Grid>
+		<StackPanel>
+			<DockPanel
+				Margin="0,0,0,5">
+				<Label
+					Content="Title:"
+					Foreground="{DynamicResource ForegroundMain}" />
+				<TextBox
+					Margin="24,0,0,0"
+					Foreground="{DynamicResource ForegroundMain}"
+					Text="{Binding Title}" />
+			</DockPanel>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<Label
+					Content="Icon:"
+					Foreground="{DynamicResource ForegroundMain}" />
+				<TextBox
+					Grid.Column="1"
+					Margin="24,0,0,0"
+					Foreground="{DynamicResource ForegroundMain}"
+					Text="{Binding IconPath}"
+					TextChanged="IconPath_TextChanged" />
+				<Button
+					Grid.Column="2"
+					Click="SelectIcon_Click">
+					<DockPanel>
+						<iconPacks:PackIconModern
+							Margin="4,1,3,0"
+							Kind="ImageSelect" />
+						<TextBlock
+							Text="Select" />
+					</DockPanel>
+				</Button>
+			</Grid>
+			<Grid
+				Margin="0,5,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<Label
+					Content="Message:"
+					Foreground="{DynamicResource ForegroundMain}" />
+				<TextBox
+					Grid.Column="1"
+					Text="{Binding Message}"
+					TextChanged="Message_TextChanged" />
+				<xctk:ColorPicker
+					Name="MessageColor"
+					Grid.Column="2"
+					Width="75" />
+			</Grid>
+			<Grid
+				Margin="0,5,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<Label
+					Content="License Source:" />
+				<TextBox
+					Grid.Column="1"
+					Text="{Binding LicenseSource}" />
+				<Button
+					Grid.Column="2"
+					Click="SelectLicSource_Click">
+					<DockPanel>
+						<iconPacks:PackIconMaterial
+							Margin="4,1,4,0"
+							Kind="KeyPlus" />
+						<TextBlock
+							Text="Select" />
+					</DockPanel>
+				</Button>
+			</Grid>
+			<DockPanel
+				Margin="0,5,0,0">
+				<Label
+					Content="Hit Information Format:" />
+				<Grid>
+					<Label
+						Name="hitInfoFormatHint"
+						Padding="6"
+						Content="hit -&gt; Type | Proxy | Data | CapturedString | ConfigName | WordlistName"
+						FontSize="12"
+						Foreground="#FF808080"
+						IsEnabled="False" />
+					<TextBox
+						Padding="4,7,4,8"
+						FontSize="12.5"
+						Foreground="{DynamicResource ForegroundMain}"
+						Text="{Binding HitInfoFormat}"
+						TextChanged="HitInfoFormatTextBox_TextChanged">
+						<FrameworkElement.Style>
+							<Style
+								BasedOn="{StaticResource TextBoxStyle}"
+								TargetType="{x:Type TextBox}">
+								<Setter
+									Property="Background"
+									Value="#00FFFFFF" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="Background"
+											Value="{DynamicResource BackgroundMain}" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</TextBox>
+				</Grid>
+			</DockPanel>
+			<StackPanel
+				Margin="0,10,0,0"
+				Orientation="Horizontal">
+				<DockPanel
+					Margin="22,0,0,0">
+					<Label
+						Content="Author Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="AuthorColor"
+						Width="100"
+						Margin="14,0,0,0"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+				<DockPanel
+					Margin="15,0,0,0">
+					<Label
+						Content="Wordlist Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="WordlistColor"
+						Width="100"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+				<DockPanel
+					Margin="20,0,0,0">
+					<Label
+						Margin="10,0,0,0"
+						Content="Bots Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="BotsColor"
+						Width="100"
+						Margin="12,0,0,0"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+			</StackPanel>
+			<StackPanel
+				Margin="0,10,0,0"
+				Orientation="Horizontal">
+				<DockPanel>
+					<Label
+						Content="Custom Input Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="CustomInputColor"
+						Width="100"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+				<DockPanel
+					Margin="23,0,0,0">
+					<Label
+						Content="CPM Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="CPMColor"
+						Width="100"
+						Margin="11,0,0,0"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+				<DockPanel
+					Margin="20,0,0,0">
+					<Label
+						Content="Progress Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="ProgressColor"
+						Width="100"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+			</StackPanel>
+			<StackPanel
+				Margin="10,5,0,0"
+				Orientation="Horizontal">
+				<DockPanel
+					Margin="15,5,0,0">
+					<Label
+						Content="Hits Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="HitsColor"
+						Width="100"
+						Margin="27,0,0,0"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+				<DockPanel
+					Margin="17,5,0,0">
+					<Label
+						Content="Custom Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="CustomColor"
+						Width="100"
+						Margin="2,0,0,0"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+				<DockPanel
+					Margin="20,5,0,0">
+					<Label
+						Content="ToCheck Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="ToCheckColor"
+						Width="100"
+						Margin="1,0,0,0"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+			</StackPanel>
+			<StackPanel
+				Margin="0,5,0,0"
+				Orientation="Horizontal">
+				<DockPanel
+					Margin="25,5,0,0">
+					<Label
+						Content="Fails Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="FailsColor"
+						Width="100"
+						Margin="25,0,0,0"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+				<DockPanel
+					Margin="17,5,0,0">
+					<Label
+						Content="Retries Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="RetriesColor"
+						Width="100"
+						Margin="7,0,0,0"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+				<DockPanel
+					Margin="20,5,0,0">
+					<Label
+						Content="OcrRate Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="OcrRateColor"
+						Width="100"
+						Margin="3,0,0,0"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+			</StackPanel>
+			<StackPanel
+				Margin="0,5,0,0">
+				<DockPanel
+					Margin="20,5,0,0">
+					<Label
+						Content="Proxies Color: "
+						Foreground="{DynamicResource ForegroundMain}" />
+					<xctk:ColorPicker
+						Name="ProxiesColor"
+						Width="100"
+						Margin="15,0,0,0"
+						HorizontalAlignment="Left"
+						SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+				</DockPanel>
+			</StackPanel>
+		</StackPanel>
+		<Label
+			Name="compilerVersion"
+			Margin="5,0,0,5"
+			VerticalAlignment="Bottom"
+			Content="1"
+			FontSize="13"
+			FontWeight="Bold"
+			ToolTip="Version" />
+	</Grid>
+</Page>

@@ -1,0 +1,330 @@
+<Page
+	x:Class="OpenBullet.DialogSelectConfig"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+	xmlns:local="clr-namespace:OpenBullet"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="DialogSelectConfig">
+	<Grid
+		Width="710"
+		Height="500"
+		Margin="5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="auto" />
+			</Grid.ColumnDefinitions>
+			<TextBox
+				x:Name="filterTextbox"
+				Grid.Column="0"
+				Text="{Binding SearchString}"
+				KeyDown="filterTextbox_KeyDown" />
+			<Button
+				x:Name="searchButton"
+				Grid.Column="1"
+				Click="searchButton_Click">
+				<StackPanel
+					Orientation="Horizontal">
+					<Image
+						Width="20"
+						RenderOptions.BitmapScalingMode="HighQuality"
+						Source="/Images/Icons/search.png" />
+					<TextBlock
+						Margin="5,0"
+						VerticalAlignment="Center">Search</TextBlock>
+				</StackPanel>
+			</Button>
+		</Grid>
+		<ListView
+			x:Name="configsListView"
+			Grid.Row="1"
+			Background="#00FFFFFF"
+			BorderThickness="1"
+			Foreground="{DynamicResource ForegroundMain}"
+			SelectionMode="Extended"
+			VirtualizingPanel.IsVirtualizing="True"
+			ItemsSource="{Binding Path=ConfigsCollection}">
+			<FrameworkElement.Style>
+				<Style
+					TargetType="{x:Type ListView}" />
+			</FrameworkElement.Style>
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						x:Key="GridViewColumnHeaderGripper"
+						TargetType="{x:Type Thumb}">
+						<Setter
+							Property="Width"
+							Value="18" />
+						<Setter
+							Property="Background">
+							<Setter.Value>
+								<LinearGradientBrush
+									StartPoint="0,0"
+									EndPoint="0,1">
+									<GradientBrush.GradientStops>
+										<GradientStopCollection>
+											<GradientStop
+												Offset="0.0"
+												Color="{DynamicResource BorderLightColor}" />
+											<GradientStop
+												Offset="1.0"
+												Color="{DynamicResource BorderDarkColor}" />
+										</GradientStopCollection>
+									</GradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type Thumb}">
+									<Border
+										Padding="{TemplateBinding Control.Padding}"
+										Background="#00FFFFFF">
+										<Rectangle
+											Width="1"
+											HorizontalAlignment="Center"
+											Fill="{TemplateBinding Control.Background}" />
+									</Border>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="BorderBrush">
+							<Setter.Value>
+								<LinearGradientBrush
+									StartPoint="0.5,0"
+									EndPoint="0.5,1">
+									<GradientStop
+										Offset="0"
+										Color="Black" />
+									<GradientStop
+										Offset="1"
+										Color="White" />
+								</LinearGradientBrush>
+							</Setter.Value>
+						</Setter>
+					</Style>
+					<Style
+						x:Key="{x:Type GridViewColumnHeader}"
+						TargetType="{x:Type GridViewColumnHeader}">
+						<Setter
+							Property="HorizontalContentAlignment"
+							Value="Left" />
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type GridViewColumnHeader}">
+									<Grid>
+										<Border
+											Background="#00FFFFFF"
+											BorderBrush="#FF000000"
+											BorderThickness="0,0,0,1">
+											<TextBlock
+												x:Name="ContentHeader"
+												Width="{TemplateBinding FrameworkElement.Width}"
+												Padding="5,5,5,0"
+												Text="{TemplateBinding ContentControl.Content}"
+												TextAlignment="Left" />
+										</Border>
+										<Thumb
+											x:Name="PART_HeaderGripper"
+											Margin="0,0,-9,0"
+											HorizontalAlignment="Right"
+											Style="{StaticResource GridViewColumnHeaderGripper}" />
+									</Grid>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="FrameworkElement.OverridesDefaultStyle"
+							Value="True" />
+						<Setter
+							Property="Foreground"
+							Value="{DynamicResource ForegroundMain}" />
+						<Setter
+							Property="FontFamily"
+							Value="pack://application:,,,/Fonts/#Century Gothic" />
+						<Setter
+							Property="FontSize"
+							Value="14" />
+					</Style>
+					<Style
+						x:Key="{x:Type ListViewItem}"
+						TargetType="{x:Type ListViewItem}">
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type ListViewItem}">
+									<Border
+										x:Name="Bd"
+										Padding="0"
+										Background="{TemplateBinding Control.Background}"
+										BorderBrush="{TemplateBinding Control.BorderBrush}"
+										BorderThickness="{TemplateBinding Control.BorderThickness}"
+										SnapsToDevicePixels="True">
+										<GridViewRowPresenter
+											HorizontalAlignment="Left"
+											VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+											SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+									</Border>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Style.Triggers>
+							<Trigger
+								Property="UIElement.IsMouseOver"
+								Value="True">
+								<Setter
+									Property="Background"
+									Value="{DynamicResource BackgroundSecondary}" />
+							</Trigger>
+							<Trigger
+								Property="ListBoxItem.IsSelected"
+								Value="True">
+								<Setter
+									Property="Background"
+									Value="{DynamicResource BackgroundSecondary}" />
+							</Trigger>
+						</Style.Triggers>
+						<EventSetter
+							Event="MouseDoubleClick"
+							Handler="ListViewItem_MouseDoubleClick" />
+						<EventSetter
+							Event="KeyDown"
+							Handler="ListViewItem_KeyDown" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<VirtualizingStackPanel />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ListView.View>
+				<GridView>
+					<GridViewColumn
+						Width="130"
+						DisplayMemberBinding="{Binding Path=Config.Settings.Name}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.Settings.Name"
+								Click="listViewColumnHeader_Click">Name</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						DisplayMemberBinding="{Binding Path=Config.Settings.Author}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.Settings.Author"
+								Click="listViewColumnHeader_Click">Author</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="100"
+						DisplayMemberBinding="{Binding Path=Category}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Category"
+								Click="listViewColumnHeader_Click">Category</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="100"
+						DisplayMemberBinding="{Binding Path=Config.AllowedWordlists}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.AllowedWordlists"
+								Click="listViewColumnHeader_Click">Wordlists</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="40"
+						DisplayMemberBinding="{Binding Path=Config.Settings.NeedsProxies}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.Settings.NeedsProxies"
+								Click="listViewColumnHeader_Click">Prox</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="40"
+						DisplayMemberBinding="{Binding Path=Config.CaptchasNeeded}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.CaptchasNeeded"
+								Click="listViewColumnHeader_Click">Cap</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="40"
+						DisplayMemberBinding="{Binding Path=Config.SeleniumPresent}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.SeleniumPresent"
+								Click="listViewColumnHeader_Click">Sele</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						DisplayMemberBinding="{Binding Path=Config.HasCFBypass}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.HasCFBypass"
+								Click="listViewColumnHeader_Click">CF</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="200"
+						DisplayMemberBinding="{Binding Path=Config.Settings.LastModified}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.Settings.LastModified"
+								Click="listViewColumnHeader_Click">Last Modified</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+				</GridView>
+			</ListView.View>
+		</ListView>
+		<Grid
+			Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="0.2*" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Button
+				Name="refreshButton"
+				Click="refreshButton_Click">
+				<DockPanel>
+					<iconPacks:PackIconMaterial
+						Kind="Refresh" />
+					<TextBlock
+						Margin="5,0,0,0">Refresh</TextBlock>
+				</DockPanel>
+			</Button>
+			<Button
+				x:Name="selectButton"
+				Grid.Row="2"
+				Grid.Column="1"
+				Content="Select"
+				Click="selectButton_Click" />
+		</Grid>
+	</Grid>
+</Page>

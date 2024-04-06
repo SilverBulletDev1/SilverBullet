@@ -1,0 +1,223 @@
+<Page
+	x:Class="OpenBullet.Views.Dialogs.DialogAddBlock"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:OpenBullet.Views.Dialogs"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="DialogAddBlock">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<Style
+				x:Key="{x:Type Button}"
+				TargetType="{x:Type Button}">
+				<Setter
+					Property="FontFamily"
+					Value="pack://application:,,,/Fonts/#Century Gothic" />
+				<Setter
+					Property="FontSize"
+					Value="16" />
+				<Setter
+					Property="FontWeight"
+					Value="Regular" />
+				<Setter
+					Property="BorderThickness"
+					Value="2" />
+				<Setter
+					Property="BorderBrush"
+					Value="#FF000000" />
+				<Setter
+					Property="Margin"
+					Value="1" />
+				<Setter
+					Property="Width"
+					Value="165" />
+				<Setter
+					Property="Height"
+					Value="52" />
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel
+			Grid.Row="0"
+			Orientation="Horizontal">
+			<Label
+				Content="Current set:" />
+			<Label
+				x:Name="defaultSetLabel"
+				Content="Default"
+				FontWeight="Bold"
+				MouseDown="defaultSetLabel_MouseDown" />
+			<Label
+				x:Name="pluginsSetLabel"
+				Content="Plugins"
+				FontWeight="Bold"
+				MouseDown="pluginsSetLabel_MouseDown" />
+		</StackPanel>
+		<TabControl
+			x:Name="blockSetTabControl"
+			Grid.Row="1"
+			Background="#00FFFFFF"
+			BorderThickness="0">
+			<ItemsControl.ItemContainerStyle>
+				<Style
+					TargetType="{x:Type TabItem}">
+					<Setter
+						Property="Visibility"
+						Value="Collapsed" />
+				</Style>
+			</ItemsControl.ItemContainerStyle>
+			<TabItem>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="auto" />
+						<ColumnDefinition
+							Width="auto" />
+						<ColumnDefinition
+							Width="auto" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="60" />
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+					</Grid.RowDefinitions>
+					<Button
+						x:Name="blockRequestButton"
+						Grid.Row="0"
+						Grid.Column="0"
+						Background="#FF32CD32"
+						Content="REQUEST"
+						Click="blockRequestButton_Click" />
+					<Button
+						x:Name="blockUtilityButton"
+						Grid.Row="0"
+						Grid.Column="1"
+						Background="#FFF5DEB3"
+						Content="UTILITY"
+						Click="blockUtilityButton_Click" />
+					<Button
+						x:Name="blockKeycheckButton"
+						Grid.Row="0"
+						Grid.Column="2"
+						Background="#FF1E90FF"
+						Content="KEY CHECK"
+						Click="blockKeycheckButton_Click" />
+					<Button
+						x:Name="blockParseButton"
+						Grid.Row="1"
+						Grid.Column="0"
+						Background="#FFFFD700"
+						Content="PARSE"
+						Click="blockParseButton_Click" />
+					<Button
+						x:Name="blockFunctionButton"
+						Grid.Row="1"
+						Grid.Column="1"
+						Background="#FF9ACD32"
+						Content="FUNCTION"
+						Click="blockFunctionButton_Click" />
+					<Button
+						x:Name="blockSolveCaptchaButton"
+						Grid.Row="1"
+						Grid.Column="2"
+						Background="#FF40E0D0"
+						Content="SOLVE CAPTCHA"
+						Click="blockSolveCaptchaButton_Click" />
+					<Button
+						x:Name="blockReportCaptchaButton"
+						Grid.Row="2"
+						Grid.Column="0"
+						Background="#FFFF8C00"
+						Content="REPORT CAPTCHA"
+						Click="blockReportCaptchaButton_Click" />
+					<Button
+						x:Name="blockBypassCFButton"
+						Grid.Row="2"
+						Grid.Column="1"
+						Background="#FFE9967A"
+						Content="BYPASS CF"
+						Click="blockBypassCFButton_Click" />
+					<Button
+						x:Name="blockTCPButton"
+						Grid.Row="2"
+						Grid.Column="2"
+						Background="#FF9370DB"
+						Content="TCP"
+						Click="blockTCPButton_Click" />
+					<Button
+						x:Name="blockOcrButton"
+						Grid.Row="3"
+						Grid.Column="0"
+						Background="#E6E6E6"
+						Content="OCR"
+						Click="blockOcrButton_Click" />
+					<Button
+						Grid.Row="3"
+						Grid.Column="1"
+						Background="#FFF5B200"
+						Content="WS"
+						Click="blockWS_Click" />
+					<Button
+						x:Name="blockNavigateButton"
+						Grid.Row="4"
+						Grid.Column="0"
+						Background="#FF4169E1"
+						Content="NAVIGATE"
+						Click="blockNavigateButton_Click" />
+					<Button
+						x:Name="blockBrowserActionButton"
+						Grid.Row="4"
+						Grid.Column="1"
+						Background="#079A07"
+						Content="BROWSER ACTION"
+						Click="blockBrowserActionButton_Click" />
+					<Button
+						x:Name="blockElementActionButton"
+						Grid.Row="4"
+						Grid.Column="2"
+						Background="#FFB22222"
+						Content="ELEMENT ACTION"
+						Click="blockElementActionButton_Click" />
+					<Button
+						x:Name="blockExecuteJSButton"
+						Grid.Row="5"
+						Grid.Column="0"
+						Background="#3CC1E2"
+						Content="EXECUTE JS"
+						Click="blockExecuteJSButton_Click" />
+				</Grid>
+			</TabItem>
+			<TabItem>
+				<Grid
+					x:Name="pluginsGrid">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="auto" />
+						<ColumnDefinition
+							Width="auto" />
+						<ColumnDefinition
+							Width="auto" />
+					</Grid.ColumnDefinitions>
+				</Grid>
+			</TabItem>
+		</TabControl>
+	</Grid>
+</Page>

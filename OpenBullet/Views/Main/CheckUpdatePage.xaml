@@ -1,0 +1,136 @@
+<Page
+	x:Class="OpenBullet.Views.Main.CheckUpdatePage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="CheckUpdatePage"
+	xmlns:main="clr-namespace:OpenBullet.Views.Main">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<Button
+			Margin="5"
+			Content="Check For Update"
+			Click="CheckForUpdate_Click" />
+		<DockPanel
+			Grid.Row="1">
+			<Label
+				Content="Version:"
+				Foreground="{DynamicResource ForegroundMain}" />
+			<Label
+				Foreground="{DynamicResource ForegroundMain}"
+				Content="{Binding Version}" />
+		</DockPanel>
+		<DockPanel
+			Grid.Row="2">
+			<Label
+				Content="Available:"
+				Foreground="{DynamicResource ForegroundMain}" />
+			<Label
+				Foreground="{DynamicResource ForegroundMain}"
+				Content="{Binding Available}" />
+		</DockPanel>
+		<StackPanel
+			Grid.Row="3">
+			<Label
+				Content="DownloadUrl:"
+				Foreground="{DynamicResource ForegroundMain}" />
+			<Grid
+				Margin="4,0,4,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<TextBox
+					IsReadOnly="True"
+					Text="{Binding DownloadUrl}" />
+				<Button
+					Name="runUpdaterButton"
+					Grid.Column="1"
+					Content="Run Updater"
+					IsEnabled="False"
+					Click="RunUpdater_Click" />
+			</Grid>
+		</StackPanel>
+		<Label
+			Grid.Row="4"
+			Content="ReleaseNotes:"
+			Foreground="{DynamicResource ForegroundMain}" />
+		<RichTextBox
+			Name="richTextBox"
+			Grid.Row="5"
+			Margin="5"
+			Background="{DynamicResource BackgroundMain}"
+			BorderBrush="{DynamicResource ButtonBorderBrush}"
+			FontSize="14"
+			FontWeight="DemiBold"
+			Foreground="{DynamicResource ForegroundMain}"
+			HorizontalScrollBarVisibility="Auto"
+			IsReadOnly="True"
+			VerticalScrollBarVisibility="Auto">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						x:Key="{x:Type Paragraph}"
+						TargetType="{x:Type Paragraph}">
+						<Setter
+							Property="Block.Margin"
+							Value="2,0,2,0" />
+						<Setter
+							Property="Block.Padding"
+							Value="0,5,0,0" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+		</RichTextBox>
+		<Label
+			Grid.Row="6"
+			Content="if you like silverbullet consider donating to the developer. Thank you!"
+			Foreground="{DynamicResource ForegroundMain}" />
+		<RichTextBox
+			Name="richTextBoxDonate"
+			Grid.Row="7"
+			Margin="5"
+			Background="{DynamicResource BackgroundMain}"
+			BorderBrush="{DynamicResource ButtonBorderBrush}"
+			FontSize="14"
+			FontWeight="DemiBold"
+			Foreground="{DynamicResource ForegroundMain}"
+			HorizontalScrollBarVisibility="Auto"
+			IsReadOnly="True"
+			VerticalScrollBarVisibility="Auto">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						x:Key="{x:Type Paragraph}"
+						TargetType="{x:Type Paragraph}">
+						<Setter
+							Property="Block.Margin"
+							Value="2,0,2,0" />
+						<Setter
+							Property="Block.Padding"
+							Value="0,5,0,0" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+		</RichTextBox>
+	</Grid>
+</Page>

@@ -1,0 +1,2390 @@
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:editor="http://icsharpcode.net/sharpdevelop/avalonedit"
+	xmlns:iconsPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="Theme.Colors.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<SolidColorBrush
+		x:Key="ForegroundBrush"
+		Color="{StaticResource Color_002}" />
+	<SolidColorBrush
+		x:Key="LightForegroundBrush"
+		Color="{StaticResource Color_001}" />
+	<SolidColorBrush
+		x:Key="TransparentBrush"
+		Color="{StaticResource Color_016}" />
+	<SolidColorBrush
+		x:Key="DisabledVisualElement"
+		Opacity="0.6"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="ValidationErrorElement"
+		Color="{StaticResource Color_028}" />
+	<SolidColorBrush
+		x:Key="CaretForegroundBrush"
+		Color="{StaticResource Color_022}" />
+	<SolidColorBrush
+		x:Key="HScrollbarThumbBackgroundBrush"
+		Color="{StaticResource Color_005}" />
+	<SolidColorBrush
+		x:Key="VScrollbarThumbBackgroundBrush"
+		Color="{StaticResource Color_005}" />
+	<SolidColorBrush
+		x:Key="ScrollbarPageButtonArrowBackgroundBrush"
+		Color="{StaticResource Color_005}" />
+	<SolidColorBrush
+		x:Key="ScrollbarPageButtonArrowPressedBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ScrollbarPageButtonArrowHoverBackgroundBrush"
+		Color="{StaticResource Color_003}" />
+	<SolidColorBrush
+		x:Key="ScrollbarPageButtonArrowDisabledBackgroundBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="VScrollbarThumbHoverBackgroundBrush"
+		Color="{StaticResource Color_003}" />
+	<SolidColorBrush
+		x:Key="HScrollbarThumbHoverBackgroundBrush"
+		Color="{StaticResource Color_003}" />
+	<SolidColorBrush
+		x:Key="VScrollbarThumbPressedBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="HScrollbarThumbPressedBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="VScrollbarThumbDisabledBackgroundBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="HScrollbarThumbDisabledBackgroundBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ScrollbarDisabledBackgroundBrush"
+		Color="{StaticResource Color_008}" />
+	<SolidColorBrush
+		x:Key="ScrollbarBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="ScrollViewerCornerBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="ComboBoxBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="ComboBoxBorderBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ComboBoxReadOnlyBorderBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ComboBoxHoverBackgroundBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ComboBoxHoverBorderBrush"
+		Color="{StaticResource Color_004}" />
+	<SolidColorBrush
+		x:Key="ComboBoxFocusedBorderBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ComboBoxDisabledBackgroundBrush"
+		Opacity="0.6"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="PopupBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="PopupBorderBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ComboBoxReadOnlyBackgroundBrush"
+		Color="{StaticResource Color_064}" />
+	<SolidColorBrush
+		x:Key="TextBoxBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="TextBoxBorderBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="TextBoxHoverBackgroundBrush"
+		Color="{StaticResource Color_008}" />
+	<SolidColorBrush
+		x:Key="TextBoxHoverBorderBrush"
+		Color="{StaticResource Color_004}" />
+	<SolidColorBrush
+		x:Key="TextBoxFocusedBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="TextBoxReadOnlyBackgroundBrush"
+		Color="{StaticResource Color_007}" />
+	<SolidColorBrush
+		x:Key="TextBoxSelectionBackgroundBrush"
+		Opacity="0.4"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="TextBoxSelectionForegroundBrush"
+		Color="{StaticResource Color_025}" />
+	<SolidColorBrush
+		x:Key="ButtonBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="ButtonBorderBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ButtonHoverBackgroundBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ButtonHoverBorderBrush"
+		Color="{StaticResource Color_004}" />
+	<SolidColorBrush
+		x:Key="ButtonPressedBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ButtonPressedBorderBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ComboBoxItemHoverBackgroundBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ComboBoxItemHoverBorderBrush"
+		Color="{StaticResource Color_004}" />
+	<SolidColorBrush
+		x:Key="ComboBoxItemPressedBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ComboBoxItemPressedBorderBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ComboBoxToggleButtonBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="ComboBoxToggleButtonBorderBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ComboBoxToggleButtonHoverBackgroundBrush"
+		Color="{StaticResource Color_008}" />
+	<SolidColorBrush
+		x:Key="ComboBoxToggleButtonHoverBorderBrush"
+		Color="{StaticResource Color_004}" />
+	<SolidColorBrush
+		x:Key="ComboBoxToggleButtonPressedBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ComboBoxToggleButtonDropDownSeparatorBackgroundBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ComboBoxToggleButtonPressedBorderBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ListBoxBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="ListBoxBorderBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ListBoxItemHoverBackgroundBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="ListBoxItemHoverBorderBrush"
+		Color="{StaticResource Color_004}" />
+	<SolidColorBrush
+		x:Key="ListBoxItemPressedBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ListBoxItemPressedBorderBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ListBoxItemBackgroundBrush"
+		Color="{StaticResource Color_016}" />
+	<SolidColorBrush
+		x:Key="ListBoxItemBorderBrush"
+		Color="{StaticResource Color_016}" />
+	<SolidColorBrush
+		x:Key="ListBoxItemSelectedBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="ListBoxItemSelectedBorderBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="CheckBoxBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="CheckBoxHoverBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="CheckBoxPressedBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="CheckBoxFocusedBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="CheckBoxInvalidUnfocusedBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="CheckBoxInvalidFocusedBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="CheckBoxBorderBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="CheckBoxHoverBorderBrush"
+		Color="{StaticResource Color_004}" />
+	<SolidColorBrush
+		x:Key="CheckBoxPressedBorderBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="CheckBoxFocusedBorderBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="CheckBoxInvalidUnfocusedBorderBrush"
+		Color="{StaticResource Color_029}" />
+	<SolidColorBrush
+		x:Key="CheckBoxInvalidFocusedBorderBrush"
+		Color="{StaticResource Color_028}" />
+	<SolidColorBrush
+		x:Key="CheckBoxIndeterminateCheckBackgroundBrush"
+		Color="{StaticResource Color_004}" />
+	<SolidColorBrush
+		x:Key="CheckBoxCheckBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="RadioButtonBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="RadioButtonHoverBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="RadioButtonPressedBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="RadioButtonFocusedBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="RadioButtonInvalidUnfocusedBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="RadioButtonInvalidFocusedBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="RadioButtonBorderBrush"
+		Color="{StaticResource Color_006}" />
+	<SolidColorBrush
+		x:Key="RadioButtonHoverBorderBrush"
+		Color="{StaticResource Color_004}" />
+	<SolidColorBrush
+		x:Key="RadioButtonPressedBorderBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="RadioButtonFocusedBorderBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="RadioButtonInvalidUnfocusedBorderBrush"
+		Color="{StaticResource Color_029}" />
+	<SolidColorBrush
+		x:Key="RadioButtonInvalidFocusedBorderBrush"
+		Color="{StaticResource Color_028}" />
+	<SolidColorBrush
+		x:Key="RadioButtonCheckBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="RadioButtonIndeterminateCheckBackgroundBrush"
+		Color="{StaticResource Color_004}" />
+	<SolidColorBrush
+		x:Key="GlyphBackgroundBrush"
+		Color="{StaticResource Color_003}" />
+	<SolidColorBrush
+		x:Key="GlyphHoverBackgroundBrush"
+		Color="{StaticResource Color_002}" />
+	<SolidColorBrush
+		x:Key="GlyphPressedBackgroundBrush"
+		Color="{StaticResource Color_024}" />
+	<SolidColorBrush
+		x:Key="GlyphDisabledBackgroundBrush"
+		Color="{StaticResource Color_005}" />
+	<SolidColorBrush
+		x:Key="ValidationToolTipTemplateShadowBrush"
+		Color="{StaticResource Color_003}" />
+	<SolidColorBrush
+		x:Key="TooltipBackgroundBrush"
+		Color="{StaticResource Color_009}" />
+	<SolidColorBrush
+		x:Key="TooltipBorderBrush"
+		Color="{StaticResource Color_006}" />
+	<ControlTemplate
+		x:Key="ValidationToolTipTemplate">
+		<Grid
+			x:Name="Root"
+			Margin="5,0"
+			Opacity="0"
+			RenderTransformOrigin="0,0">
+			<UIElement.RenderTransform>
+				<TranslateTransform
+					x:Name="xform"
+					X="-25" />
+			</UIElement.RenderTransform>
+			<Border
+				Margin="4,4,-4,-4"
+				Opacity="0.02"
+				Background="{StaticResource ValidationToolTipTemplateShadowBrush}" />
+			<Border
+				Margin="3,3,-3,-3"
+				Opacity="0.08"
+				Background="{StaticResource ValidationToolTipTemplateShadowBrush}" />
+			<Border
+				Margin="2,2,-2,-2"
+				Opacity="0.15"
+				Background="{StaticResource ValidationToolTipTemplateShadowBrush}" />
+			<Border
+				Margin="1,1,-1,-1"
+				Opacity="0.21"
+				Background="{StaticResource ValidationToolTipTemplateShadowBrush}" />
+			<Border
+				Background="{StaticResource ValidationErrorElement}" />
+			<Border>
+				<TextBlock
+					MaxWidth="250"
+					Margin="8,4,8,4"
+					TextWrapping="Wrap"
+					UseLayoutRounding="False"
+					Foreground="{StaticResource LightForegroundBrush}"
+					Text="{Binding (Validation.Errors)[0].ErrorContent}" />
+			</Border>
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup
+					x:Name="OpenStates">
+					<VisualStateGroup.Transitions>
+						<VisualTransition
+							GeneratedDuration="0" />
+						<VisualTransition
+							GeneratedDuration="0:0:0.2"
+							To="Open">
+							<Storyboard>
+								<DoubleAnimation
+									Storyboard.TargetName="xform"
+									Storyboard.TargetProperty="X"
+									To="0"
+									Duration="0:0:0.2">
+									<DoubleAnimation.EasingFunction>
+										<BackEase
+											Amplitude=".3"
+											EasingMode="EaseOut" />
+									</DoubleAnimation.EasingFunction>
+								</DoubleAnimation>
+								<DoubleAnimation
+									Storyboard.TargetName="Root"
+									Storyboard.TargetProperty="Opacity"
+									To="1"
+									Duration="0:0:0.2" />
+							</Storyboard>
+						</VisualTransition>
+					</VisualStateGroup.Transitions>
+					<VisualState
+						x:Name="Closed">
+						<Storyboard>
+							<DoubleAnimation
+								Storyboard.TargetName="Root"
+								Storyboard.TargetProperty="Opacity"
+								To="0"
+								Duration="0" />
+						</Storyboard>
+					</VisualState>
+					<VisualState
+						x:Name="Open">
+						<Storyboard>
+							<DoubleAnimation
+								Storyboard.TargetName="xform"
+								Storyboard.TargetProperty="X"
+								To="0"
+								Duration="0" />
+							<DoubleAnimation
+								Storyboard.TargetName="Root"
+								Storyboard.TargetProperty="Opacity"
+								To="1"
+								Duration="0" />
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+		</Grid>
+	</ControlTemplate>
+	<Style
+		x:Key="ComboBoxToggleButtonStyle"
+		TargetType="{x:Type ToggleButton}">
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Consolas" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ForegroundBrush}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{StaticResource ComboBoxToggleButtonBorderBrush}" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource ComboBoxToggleButtonBackgroundBrush}" />
+		<Setter
+			Property="MinWidth"
+			Value="30" />
+		<Setter
+			Property="MinHeight"
+			Value="30" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Padding"
+			Value="2" />
+		<Setter
+			Property="FrameworkElement.Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition
+								Width="30" />
+						</Grid.ColumnDefinitions>
+						<Rectangle
+							x:Name="Bd"
+							Grid.ColumnSpan="2"
+							Fill="{TemplateBinding Control.Background}"
+							Stroke="{TemplateBinding Control.BorderBrush}"
+							StrokeThickness="{TemplateBinding Control.BorderThickness}" />
+						<Grid
+							Column="1">
+							<Rectangle
+								Width="1"
+								Margin="-1,5,0,5"
+								HorizontalAlignment="Left"
+								Fill="{StaticResource ComboBoxToggleButtonDropDownSeparatorBackgroundBrush}" />
+							<Path
+								x:Name="Arrow"
+								Width="10"
+								Height="6"
+								Data="F1 M301.14,-189.041 L311.57,-189.041 L306.355,-182.942 L301.14,-189.041 Z"
+								Stretch="Fill"
+								Fill="{StaticResource GlyphBackgroundBrush}" />
+							<Path
+								x:Name="ArrowSelected"
+								Width="10"
+								Height="6"
+								Data="F1 M301.14,-189.041 L311.57,-189.041 L306.355,-182.942 L301.14,-189.041 Z"
+								Stretch="Fill"
+								Visibility="Collapsed"
+								Fill="{StaticResource GlyphPressedBackgroundBrush}" />
+						</Grid>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Arrow"
+											Storyboard.TargetProperty="Fill"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource GlyphHoverBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Fill"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ComboBoxToggleButtonHoverBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Stroke"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ComboBoxToggleButtonHoverBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Pressed">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Arrow"
+											Storyboard.TargetProperty="Fill"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource GlyphPressedBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Arrow"
+											Storyboard.TargetProperty="Fill"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource GlyphDisabledBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="CheckStates">
+								<VisualState
+									x:Name="Checked">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="ArrowSelected"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Unchecked" />
+								<VisualState
+									x:Name="Indeterminate" />
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="FocusStates">
+								<VisualState
+									x:Name="Focused" />
+								<VisualState
+									x:Name="Unfocused" />
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ComboBoxItemStyle"
+		TargetType="{x:Type ComboBoxItem}">
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Consolas" />
+		<Setter
+			Property="MinHeight"
+			Value="30" />
+		<Setter
+			Property="Padding"
+			Value="6,0" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Background"
+			Value="{StaticResource TransparentBrush}" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ForegroundBrush}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ComboBoxItem}">
+					<Grid
+						Background="{TemplateBinding Control.Background}">
+						<Rectangle
+							Fill="{StaticResource TransparentBrush}" />
+						<Rectangle
+							x:Name="fillColor"
+							IsHitTestVisible="False"
+							Opacity="0"
+							StrokeThickness="{TemplateBinding Control.BorderThickness}"
+							Fill="{StaticResource ComboBoxItemHoverBackgroundBrush}"
+							Stroke="{StaticResource ComboBoxItemHoverBorderBrush}" />
+						<Rectangle
+							x:Name="CheckedBd"
+							IsHitTestVisible="False"
+							StrokeThickness="{TemplateBinding Control.BorderThickness}"
+							Visibility="Collapsed"
+							Fill="{StaticResource ComboBoxItemPressedBackgroundBrush}"
+							Stroke="{StaticResource ComboBoxItemPressedBorderBrush}" />
+						<ContentControl
+							x:Name="contentControl"
+							Margin="{TemplateBinding Control.Padding}"
+							HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+							Foreground="{TemplateBinding Control.Foreground}">
+							<ContentPresenter
+								x:Name="contentPresenter" />
+						</ContentControl>
+						<ContentControl
+							x:Name="contentControl1"
+							Margin="{TemplateBinding Control.Padding}"
+							HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+							Visibility="Collapsed"
+							Foreground="{StaticResource ForegroundBrush}">
+							<ContentPresenter
+								x:Name="contentPresenter1" />
+						</ContentControl>
+						<Rectangle
+							x:Name="FocusVisualElement"
+							StrokeThickness="2"
+							Visibility="Collapsed"
+							Stroke="{StaticResource ComboBoxItemPressedBackgroundBrush}" />
+						<Rectangle
+							x:Name="DisabledVisualElement"
+							Visibility="Collapsed"
+							Fill="{StaticResource DisabledVisualElement}" />
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="fillColor"
+											Storyboard.TargetProperty="Opacity"
+											To="1"
+											Duration="0" />
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl"
+											Storyboard.TargetProperty="Foreground"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource LightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="DisabledVisualElement"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="SelectionStates">
+								<VisualState
+									x:Name="Unselected" />
+								<VisualState
+									x:Name="Selected">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="CheckedBd"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Collapsed</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl1"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl1"
+											Storyboard.TargetProperty="Foreground"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource LightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="SelectedUnfocused" />
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="FocusStates">
+								<VisualState
+									x:Name="Focused">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="FocusVisualElement"
+											Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Unfocused" />
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="LayoutStates">
+								<VisualState
+									x:Name="AfterLoaded" />
+								<VisualState
+									x:Name="BeforeLoaded" />
+								<VisualState
+									x:Name="BeforeUnloaded" />
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ListBoxItemStyle"
+		TargetType="{x:Type ListBoxItem}">
+		<Setter
+			Property="Background"
+			Value="{StaticResource TransparentBrush}" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ForegroundBrush}" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="MinHeight"
+			Value="30" />
+		<Setter
+			Property="Padding"
+			Value="6,2" />
+		<Setter
+			Property="Margin"
+			Value="0" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ListBoxItem}">
+					<Grid>
+						<Rectangle
+							x:Name="Bd"
+							Fill="{TemplateBinding Control.Background}" />
+						<Rectangle
+							x:Name="BgSelected"
+							Visibility="Collapsed"
+							Fill="{StaticResource ListBoxItemSelectedBackgroundBrush}"
+							Stroke="{StaticResource ListBoxItemSelectedBorderBrush}" />
+						<ContentControl
+							x:Name="contentControl"
+							Margin="{TemplateBinding Control.Padding}"
+							HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+							Foreground="{TemplateBinding Control.Foreground}">
+							<ContentPresenter
+								x:Name="contentPresenter" />
+						</ContentControl>
+						<ContentControl
+							x:Name="contentControl1"
+							Margin="{TemplateBinding Control.Padding}"
+							HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+							Visibility="Collapsed"
+							Foreground="{StaticResource ForegroundBrush}">
+							<ContentPresenter
+								x:Name="contentPresenter1" />
+						</ContentControl>
+						<Rectangle
+							x:Name="FocusedVisualElement"
+							IsHitTestVisible="False"
+							StrokeThickness="2"
+							Visibility="Collapsed"
+							Stroke="{StaticResource ListBoxItemPressedBorderBrush}" />
+						<Rectangle
+							x:Name="DisabledVisualElement"
+							Visibility="Collapsed"
+							Fill="{StaticResource DisabledVisualElement}" />
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Fill">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ListBoxItemHoverBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Stroke">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ListBoxItemHoverBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl"
+											Storyboard.TargetProperty="Foreground">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource LightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="DisabledVisualElement"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="SelectionStates">
+								<VisualState
+									x:Name="Unselected" />
+								<VisualState
+									x:Name="Selected">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="BgSelected"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Collapsed</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl1"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl1"
+											Storyboard.TargetProperty="Foreground"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource LightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="SelectedUnfocused">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="BgSelected"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Collapsed</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl1"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="contentControl1"
+											Storyboard.TargetProperty="Foreground"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource LightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="FocusStates">
+								<VisualState
+									x:Name="Focused">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="FocusedVisualElement"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Unfocused" />
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="CheckBoxStyle"
+		TargetType="{x:Type CheckBox}">
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource ForegroundMain}" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="6,0,0,0" />
+		<Setter
+			Property="MinHeight"
+			Value="30" />
+		<Setter
+			Property="MinWidth"
+			Value="30" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type CheckBox}">
+					<Grid
+						HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+						VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="30" />
+							<ColumnDefinition
+								Width="*" />
+						</Grid.ColumnDefinitions>
+						<Rectangle
+							Fill="{StaticResource TransparentBrush}" />
+						<Rectangle
+							x:Name="normal"
+							Width="18"
+							Height="18"
+							Fill="{DynamicResource BackgroundSecondary}"
+							Opacity="1"
+							StrokeThickness="1"
+							Stroke="{StaticResource CheckBoxBorderBrush}" />
+						<Rectangle
+							x:Name="hover"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource CheckBoxHoverBackgroundBrush}"
+							Stroke="{StaticResource CheckBoxHoverBorderBrush}" />
+						<Rectangle
+							x:Name="pressed"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource CheckBoxPressedBackgroundBrush}"
+							Stroke="{StaticResource CheckBoxPressedBorderBrush}" />
+						<Rectangle
+							x:Name="focused"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource CheckBoxFocusedBackgroundBrush}"
+							Stroke="{StaticResource CheckBoxFocusedBorderBrush}" />
+						<Rectangle
+							x:Name="invalidUnfocused"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource CheckBoxInvalidUnfocusedBackgroundBrush}"
+							Stroke="{StaticResource CheckBoxInvalidUnfocusedBackgroundBrush}" />
+						<Rectangle
+							x:Name="invalidFocused"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource CheckBoxInvalidFocusedBackgroundBrush}"
+							Stroke="{StaticResource CheckBoxInvalidFocusedBorderBrush}" />
+						<Path
+							x:Name="checkBox"
+							Width="12"
+							Height="10"
+							Data="M1145.607177734375,430 C1145.607177734375,430 1141.449951171875,435.0772705078125 1141.449951171875,435.0772705078125 C1141.449951171875,435.0772705078125 1139.232177734375,433.0999755859375 1139.232177734375,433.0999755859375 C1139.232177734375,433.0999755859375 1138,434.5538330078125 1138,434.5538330078125 C1138,434.5538330078125 1141.482177734375,438 1141.482177734375,438 C1141.482177734375,438 1141.96875,437.9375 1141.96875,437.9375 C1141.96875,437.9375 1147,431.34619140625 1147,431.34619140625 C1147,431.34619140625 1145.607177734375,430 1145.607177734375,430 Z"
+							Opacity="0"
+							Stretch="Fill"
+							UseLayoutRounding="False"
+							Fill="{StaticResource CheckBoxCheckBackgroundBrush}" />
+						<Rectangle
+							x:Name="IndeterminateCheck"
+							Width="8"
+							Height="3"
+							Opacity="0"
+							Fill="{StaticResource CheckBoxIndeterminateCheckBackgroundBrush}" />
+						<Rectangle
+							x:Name="disabled"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource DisabledVisualElement}" />
+						<ContentPresenter
+							x:Name="contentPresenter"
+							Grid.Column="1"
+							Margin="{TemplateBinding Control.Padding}"
+							Content="{TemplateBinding ContentControl.Content}"
+							ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" />
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="hover"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Pressed">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="pressed"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="contentPresenter"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To=".55"
+											Duration="0" />
+										<DoubleAnimation
+											Storyboard.TargetName="disabled"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="CheckStates">
+								<VisualState
+									x:Name="Checked">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="checkBox"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Unchecked" />
+								<VisualState
+									x:Name="Indeterminate">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="IndeterminateCheck"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="FocusStates">
+								<VisualState
+									x:Name="Focused">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="focused"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Unfocused" />
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="ValidationStates">
+								<VisualState
+									x:Name="Valid" />
+								<VisualState
+									x:Name="InvalidUnfocused">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="invalidUnfocused"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="InvalidFocused">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="invalidFocused"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="RadioButtonStyle"
+		TargetType="{x:Type RadioButton}">
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource ForegroundMain}" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="6,0,0,0" />
+		<Setter
+			Property="MinHeight"
+			Value="30" />
+		<Setter
+			Property="MinWidth"
+			Value="20" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type RadioButton}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="18" />
+							<ColumnDefinition
+								Width="*" />
+						</Grid.ColumnDefinitions>
+						<Rectangle
+							Margin="-6,0"
+							Fill="{StaticResource TransparentBrush}" />
+						<Ellipse
+							x:Name="normal"
+							Width="18"
+							Height="18"
+							Opacity="1"
+							StrokeThickness="1"
+							Fill="{StaticResource RadioButtonBackgroundBrush}"
+							Stroke="{StaticResource RadioButtonBorderBrush}" />
+						<Ellipse
+							x:Name="hover"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource RadioButtonHoverBackgroundBrush}"
+							Stroke="{StaticResource RadioButtonHoverBorderBrush}" />
+						<Ellipse
+							x:Name="pressed"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource RadioButtonPressedBackgroundBrush}"
+							Stroke="{StaticResource RadioButtonPressedBorderBrush}" />
+						<Ellipse
+							x:Name="focused"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource RadioButtonFocusedBackgroundBrush}"
+							Stroke="{StaticResource RadioButtonFocusedBorderBrush}" />
+						<Ellipse
+							x:Name="invalidUnfocused"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource RadioButtonInvalidUnfocusedBackgroundBrush}"
+							Stroke="{StaticResource RadioButtonInvalidUnfocusedBorderBrush}" />
+						<Ellipse
+							x:Name="invalidFocused"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource RadioButtonInvalidFocusedBackgroundBrush}"
+							Stroke="{StaticResource RadioButtonInvalidFocusedBorderBrush}" />
+						<Ellipse
+							x:Name="Checked1"
+							Width="10"
+							Height="10"
+							Opacity="0"
+							Fill="{StaticResource RadioButtonCheckBackgroundBrush}" />
+						<ContentPresenter
+							x:Name="contentPresenter"
+							Grid.Column="1"
+							Margin="{TemplateBinding Control.Padding}"
+							HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+							Content="{TemplateBinding ContentControl.Content}"
+							ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" />
+						<Ellipse
+							x:Name="disabled"
+							Width="18"
+							Height="18"
+							Opacity="0"
+							StrokeThickness="1"
+							Fill="{StaticResource DisabledVisualElement}" />
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="hover"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Pressed">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="pressed"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="contentPresenter"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To=".55"
+											Duration="0" />
+										<DoubleAnimation
+											Storyboard.TargetName="disabled"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="CheckStates">
+								<VisualState
+									x:Name="Checked">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="Checked1"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Unchecked" />
+								<VisualState
+									x:Name="Indeterminate" />
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="FocusStates">
+								<VisualState
+									x:Name="Focused">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="focused"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Unfocused" />
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="ValidationStates">
+								<VisualState
+									x:Name="Valid" />
+								<VisualState
+									x:Name="InvalidUnfocused">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="invalidUnfocused"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="InvalidFocused">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="invalidFocused"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="1"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ButtonStyle"
+		TargetType="{x:Type Button}">
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource ForegroundMain}" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Padding"
+			Value="10,0,10,2" />
+		<Setter
+			Property="MinHeight"
+			Value="30" />
+		<Setter
+			Property="MinWidth"
+			Value="30" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Grid>
+						<Rectangle
+							x:Name="Bd"
+							Fill="{DynamicResource BackgroundSecondary}"
+							StrokeThickness="1"
+							Stroke="{StaticResource ButtonBorderBrush}" />
+						<ContentControl
+							x:Name="ContentControl"
+							Margin="{TemplateBinding Control.Padding}"
+							HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+							Foreground="{TemplateBinding Control.Foreground}">
+							<ContentPresenter
+								x:Name="contentPresenter" />
+						</ContentControl>
+						<Rectangle
+							x:Name="FocusedVisualElement"
+							StrokeThickness="2"
+							Visibility="Collapsed"
+							Stroke="{StaticResource ButtonPressedBorderBrush}" />
+						<Rectangle
+							x:Name="DisabledVisualElement"
+							Visibility="Collapsed"
+							Fill="{StaticResource DisabledVisualElement}" />
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Fill">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{DynamicResource BackgroundMain}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Stroke">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ButtonHoverBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="ContentControl"
+											Storyboard.TargetProperty="Foreground"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource LightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Pressed">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Fill">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{DynamicResource BackgroundSecondary}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Stroke">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ButtonPressedBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="ContentControl"
+											Storyboard.TargetProperty="Foreground"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource LightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="DisabledVisualElement"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="FocusStates">
+								<VisualState
+									x:Name="Focused">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="FocusedVisualElement"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Unfocused" />
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="MyButtonStyle"
+		TargetType="{x:Type Button}">
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource ForegroundMain}" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Padding"
+			Value="10,0,10,2" />
+		<Setter
+			Property="MinHeight"
+			Value="30" />
+		<Setter
+			Property="MinWidth"
+			Value="30" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Grid>
+						<Rectangle
+							x:Name="Bd"
+							Fill="{TemplateBinding Control.Background}"
+							Stroke="{TemplateBinding Control.BorderBrush}"
+							StrokeThickness="1" />
+						<ContentControl
+							x:Name="ContentControl"
+							Margin="{TemplateBinding Control.Padding}"
+							HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+							Foreground="{TemplateBinding Control.Foreground}">
+							<ContentPresenter
+								x:Name="contentPresenter" />
+						</ContentControl>
+						<Rectangle
+							x:Name="FocusedVisualElement"
+							StrokeThickness="2"
+							Visibility="Collapsed"
+							Stroke="{StaticResource ButtonPressedBorderBrush}" />
+						<Rectangle
+							x:Name="DisabledVisualElement"
+							Visibility="Collapsed"
+							Fill="{StaticResource DisabledVisualElement}" />
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Fill">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{DynamicResource BackgroundMain}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Stroke">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ButtonHoverBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="ContentControl"
+											Storyboard.TargetProperty="Foreground"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource LightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Pressed">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Fill">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{DynamicResource BackgroundSecondary}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="Bd"
+											Storyboard.TargetProperty="Stroke">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource ButtonPressedBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="ContentControl"
+											Storyboard.TargetProperty="Foreground"
+											Duration="0">
+											<DiscreteObjectKeyFrame
+												KeyTime="0"
+												Value="{StaticResource LightForegroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="DisabledVisualElement"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup
+								x:Name="FocusStates">
+								<VisualState
+									x:Name="Focused">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames
+											Storyboard.TargetName="FocusedVisualElement"
+											Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame
+												KeyTime="0">
+												<ObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</ObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Unfocused" />
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="CircleButton"
+		TargetType="{x:Type Button}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Grid>
+						<Ellipse
+							Fill="{TemplateBinding Control.Background}" />
+						<ContentPresenter
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Content="{TemplateBinding ContentControl.Content}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="{x:Type ContextMenu}"
+		TargetType="{x:Type ContextMenu}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource BackgroundMain}" />
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Block.TextAlignment"
+			Value="Left" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource AccordionBorderBrush}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource ForegroundMain}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="FontFamily"
+			Value="{DynamicResource {x:Static SystemFonts.MenuFontFamilyKey}}" />
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontStyle"
+			Value="{DynamicResource {x:Static SystemFonts.MenuFontStyleKey}}" />
+		<Setter
+			Property="FontWeight"
+			Value="{DynamicResource {x:Static SystemFonts.MenuFontWeightKey}}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}" />
+		<Setter
+			Property="Grid.IsSharedSizeScope"
+			Value="True" />
+		<Setter
+			Property="ContextMenu.HasDropShadow"
+			Value="True" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="RenderOptions.ClearTypeHint"
+			Value="Enabled" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ContextMenu}">
+					<Grid>
+						<Rectangle
+							x:Name="LayoutRoot"
+							Fill="{DynamicResource BackgroundMain}" />
+						<Border
+							x:Name="Border"
+							Padding="{TemplateBinding Control.Padding}"
+							Background="{DynamicResource BackgroundMain}"
+							BorderBrush="{DynamicResource AccordionBorderBrush}"
+							BorderThickness="1"
+							SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}">
+							<ScrollViewer
+								x:Name="SubMenuScrollViewer"
+								CanContentScroll="True"
+								Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
+								<ItemsPresenter
+									x:Name="ItemsPresenter"
+									Margin="0"
+									Grid.IsSharedSizeScope="True"
+									KeyboardNavigation.DirectionalNavigation="Cycle"
+									KeyboardNavigation.TabNavigation="Cycle"
+									SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="ContextMenu.HasDropShadow"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Property="Margin"
+								Value="0,0,6,6" />
+							<Setter
+								TargetName="LayoutRoot"
+								Property="UIElement.Effect">
+								<Setter.Value>
+									<DropShadowEffect
+										BlurRadius="4"
+										Opacity="0.8"
+										ShadowDepth="1" />
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="LayoutRoot"
+								Property="Margin"
+								Value="0,0,6,6" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="TextOptions.TextFormattingMode"
+			Value="Ideal" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+	</Style>
+	<Style
+		x:Key="{x:Type MenuItem}"
+		TargetType="{x:Type MenuItem}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource BackgroundMain}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource ForegroundMain}" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+		<Setter
+			Property="RenderOptions.ClearTypeHint"
+			Value="Enabled" />
+		<Setter
+			Property="ScrollViewer.PanningMode"
+			Value="Both" />
+		<Setter
+			Property="Stylus.IsFlicksEnabled"
+			Value="False" />
+		<Setter
+			Property="Template"
+			Value="{DynamicResource {ComponentResourceKey ResourceId=SubmenuItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+		<Style.Triggers>
+			<Trigger
+				Property="MenuItem.Role"
+				Value="TopLevelHeader">
+				<Setter
+					Property="Padding"
+					Value="7,5,8,6" />
+				<Setter
+					Property="Template"
+					Value="{DynamicResource {ComponentResourceKey ResourceId=TopLevelHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.Role"
+				Value="TopLevelItem">
+				<Setter
+					Property="Padding"
+					Value="7,5,8,6" />
+				<Setter
+					Property="Template"
+					Value="{DynamicResource {ComponentResourceKey ResourceId=TopLevelItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.Role"
+				Value="SubmenuHeader">
+				<Setter
+					Property="Padding"
+					Value="2,6,2,6" />
+				<Setter
+					Property="Template"
+					Value="{DynamicResource {ComponentResourceKey ResourceId=SubmenuHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.Role"
+				Value="SubmenuItem">
+				<Setter
+					Property="Padding"
+					Value="-2,6,0,6" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<ContextMenu
+		x:Key="MahApps.TextBox.ContextMenu">
+		<MenuItem
+			Command="ApplicationCommands.Cut"
+			Icon="{iconsPack:FontAwesome Kind=CutSolid}" />
+		<MenuItem
+			Command="ApplicationCommands.Copy"
+			Icon="{iconsPack:FontAwesome Kind=CopySolid}" />
+		<MenuItem
+			Command="ApplicationCommands.Paste"
+			Icon="{iconsPack:FontAwesome Kind=PasteSolid}" />
+	</ContextMenu>
+	<ContextMenu
+		x:Key="RichTextBox.ContextMenu">
+		<MenuItem
+			Command="ApplicationCommands.Cut"
+			Icon="{iconsPack:FontAwesome Kind=CutSolid}" />
+		<MenuItem
+			Command="ApplicationCommands.Copy"
+			Icon="{iconsPack:FontAwesome Kind=CopySolid}" />
+		<MenuItem
+			Command="ApplicationCommands.Paste"
+			Icon="{iconsPack:FontAwesome Kind=PasteSolid}" />
+		<MenuItem
+			Command="ApplicationCommands.SelectAll">
+			<MenuItem.Icon>
+				<iconsPack:PackIconModern
+					Kind="ListSelect" />
+			</MenuItem.Icon>
+		</MenuItem>
+	</ContextMenu>
+	<ControlTemplate
+		x:Key="{x:Static MenuItem.SubmenuItemTemplateKey}"
+		TargetType="{x:Type MenuItem}">
+		<Border
+			Name="Border"
+			Background="{DynamicResource BackgroundMain}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Icon" />
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Shortcut" />
+					<ColumnDefinition
+						Width="13" />
+				</Grid.ColumnDefinitions>
+				<ContentPresenter
+					Name="Icon"
+					Margin="6,0,8,0"
+					VerticalAlignment="Center"
+					ContentSource="Icon" />
+				<Border
+					Name="Check"
+					Width="13"
+					Height="13"
+					Margin="6,0,6,0"
+					Background="{DynamicResource BackgroundMain}"
+					BorderBrush="{DynamicResource AccordionBorderBrush}"
+					BorderThickness="1"
+					Visibility="Collapsed">
+					<Path
+						Name="CheckMark"
+						Width="7"
+						Height="7"
+						Data="M0,0 L7,7 M0,7 L7,0"
+						SnapsToDevicePixels="False"
+						Stroke="{DynamicResource ForegroundGood}"
+						StrokeThickness="2"
+						Visibility="Hidden" />
+				</Border>
+				<ContentPresenter
+					Name="HeaderHost"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					ContentSource="Header"
+					RecognizesAccessKey="True" />
+				<TextBlock
+					x:Name="InputGestureText"
+					Grid.Column="2"
+					Margin="5,6,0,6"
+					DockPanel.Dock="Right"
+					Text="{TemplateBinding MenuItem.InputGestureText}" />
+			</Grid>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="MenuItem.Icon"
+				Value="{x:Null}">
+				<Setter
+					TargetName="Icon"
+					Property="UIElement.Visibility"
+					Value="Hidden" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.IsChecked"
+				Value="True">
+				<Setter
+					TargetName="CheckMark"
+					Property="UIElement.Visibility"
+					Value="Visible" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.IsCheckable"
+				Value="True">
+				<Setter
+					TargetName="Check"
+					Property="UIElement.Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="Icon"
+					Property="UIElement.Visibility"
+					Value="Hidden" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.IsHighlighted"
+				Value="True">
+				<Setter
+					TargetName="Border"
+					Property="Border.Background"
+					Value="#5082a4" />
+			</Trigger>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="Control.Foreground">
+					<Setter.Value>
+						<SolidColorBrush
+							Opacity="0.4"
+							Color="#969696" />
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		x:Key="{x:Static MenuItem.SubmenuHeaderTemplateKey}"
+		TargetType="{x:Type MenuItem}">
+		<Border
+			Name="Border"
+			Background="{DynamicResource BackgroundMain}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Icon" />
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Shortcut" />
+					<ColumnDefinition
+						Width="13" />
+				</Grid.ColumnDefinitions>
+				<ContentPresenter
+					Name="Icon"
+					Margin="6,0,6,0"
+					VerticalAlignment="Center"
+					ContentSource="Icon" />
+				<ContentPresenter
+					Name="HeaderHost"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					ContentSource="Header"
+					RecognizesAccessKey="True" />
+				<TextBlock
+					x:Name="InputGestureText"
+					Grid.Column="2"
+					Margin="5,6,2,6"
+					DockPanel.Dock="Right"
+					Text="{TemplateBinding MenuItem.InputGestureText}" />
+				<Path
+					Grid.Column="3"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Data="M0,0 L0,7 L4,3.5 Z"
+					Fill="{DynamicResource ForegroundMain}" />
+				<Popup
+					Name="Popup"
+					AllowsTransparency="True"
+					Focusable="False"
+					HorizontalOffset="-4"
+					IsOpen="{TemplateBinding MenuItem.IsSubmenuOpen}"
+					Placement="Right"
+					PopupAnimation="Fade">
+					<Border
+						Name="SubmenuBorder"
+						Background="{DynamicResource BackgroundMain}"
+						BorderBrush="{DynamicResource AccordionBorderBrush}"
+						BorderThickness="1"
+						SnapsToDevicePixels="True">
+						<StackPanel
+							IsItemsHost="True"
+							KeyboardNavigation.DirectionalNavigation="Cycle" />
+					</Border>
+				</Popup>
+			</Grid>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="MenuItem.Icon"
+				Value="{x:Null}">
+				<Setter
+					TargetName="Icon"
+					Property="UIElement.Visibility"
+					Value="Collapsed" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.IsHighlighted"
+				Value="True">
+				<Setter
+					TargetName="Border"
+					Property="Border.Background"
+					Value="#5082a4" />
+			</Trigger>
+			<Trigger
+				SourceName="Popup"
+				Property="Popup.AllowsTransparency"
+				Value="True">
+				<Setter
+					TargetName="SubmenuBorder"
+					Property="Border.CornerRadius"
+					Value="4" />
+				<Setter
+					TargetName="SubmenuBorder"
+					Property="Border.Padding"
+					Value="0,3,0,3" />
+			</Trigger>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="Control.Foreground"
+					Value="#2186C9" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<Style
+		x:Key="{x:Type RichTextBox}"
+		TargetType="{x:Type RichTextBox}">
+		<Setter
+			Property="FrameworkElement.ContextMenu"
+			Value="{StaticResource RichTextBox.ContextMenu}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource AccordionBorderBrush}" />
+	</Style>
+	<Style
+		x:Key="{x:Static MenuItem.SeparatorStyleKey}"
+		TargetType="{x:Type Separator}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Separator}">
+					<Border
+						Height="1"
+						Margin="1,0,1,0"
+						Background="{TemplateBinding Control.Background}"
+						BorderBrush="{TemplateBinding Control.BorderBrush}"
+						BorderThickness="{TemplateBinding Control.BorderThickness}"
+						SnapsToDevicePixels="True" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="{x:Type avalonEdit:SearchPanel}"
+		TargetType="{x:Type avalonEdit:SearchPanel}">
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type avalonEdit:SearchPanel}">
+					<Border
+						HorizontalAlignment="Right"
+						VerticalAlignment="Top"
+						Background="{DynamicResource WindowBackgroundBrush}"
+						BorderBrush="{DynamicResource AccentColorBrush}"
+						BorderThickness="1,0,1,1"
+						Cursor="Arrow">
+						<StackPanel
+							Orientation="Horizontal">
+							<TextBox
+								Name="PART_searchTextBox"
+								Width="150"
+								Height="Auto"
+								Margin="3,3,0,3"
+								BorderBrush="{DynamicResource AccentColorBrush}"
+								Focusable="True">
+								<TextBox.Text>
+									<Binding
+										Path="SearchPattern"
+										UpdateSourceTrigger="PropertyChanged"
+										RelativeSource="{RelativeSource TemplatedParent}">
+										<Binding.ValidationRules>
+											<ExceptionValidationRule />
+										</Binding.ValidationRules>
+									</Binding>
+								</TextBox.Text>
+							</TextBox>
+							<Button
+								Width="30"
+								Height="30"
+								Margin="0,1,1,1"
+								Padding="1"
+								BorderBrush="#00FFFFFF"
+								BorderThickness="0"
+								Command="editor:SearchCommands.FindNext"
+								Style="{DynamicResource MetroAccentButton}"
+								ToolTip="{Binding Localization.FindNextText, RelativeSource={RelativeSource TemplatedParent}}">
+								<Path
+									Data="F1 M-218.342,2910.79 L-234.066,2926.52 L-233.954,2926.63 L-225.428,2926.63 L-210.87,2912.07 L-206.495,2907.7 L-225.313,2888.88 L-234.066,2888.88 L-218.342,2904.6 L-259.829,2904.6 L-259.829,2910.79 L-218.342,2910.79 Z"
+									Style="{DynamicResource DefaultButtonPathStyle}" />
+							</Button>
+							<Button
+								Width="30"
+								Height="30"
+								Margin="1"
+								Padding="1"
+								BorderBrush="#00FFFFFF"
+								BorderThickness="0"
+								Command="editor:SearchCommands.FindPrevious"
+								Style="{DynamicResource AccentedSquareButtonStyle}"
+								Visibility="Collapsed"
+								ToolTip="{Binding Localization.FindPreviousText, RelativeSource={RelativeSource TemplatedParent}}">
+								<Path
+									Width="16"
+									Height="16"
+									Data="F1 M-185.925,-2026.96 L-203.062,-2048.74 C-197.485,-2056.51 -197.433,-2067.31 -203.64,-2075.2 C-211.167,-2084.76 -225.019,-2086.42 -234.588,-2078.89 C-244.154,-2071.36 -245.808,-2057.51 -238.282,-2047.94 C-231.986,-2039.95 -221.274,-2037.5 -212.337,-2041.31 L-195.262,-2019.61 L-185.925,-2026.96 M-231.201,-2053.51 C-235.653,-2059.17 -234.674,-2067.36 -229.02,-2071.81 C-223.36,-2076.26 -215.169,-2075.29 -210.721,-2069.63 C-206.269,-2063.97 -207.245,-2055.78 -212.902,-2051.33 C-218.559,-2046.88 -226.752,-2047.86 -231.201,-2053.51 Z"
+									Fill="{DynamicResource IdealForegroundColorBrush}"
+									Stretch="Uniform" />
+							</Button>
+							<StackPanel
+								Orientation="Horizontal">
+								<ToggleButton
+									Width="36"
+									Height="36"
+									Margin="0"
+									Content="aA"
+									Cursor="Hand"
+									FontFamily="Consolas,Courier New,Courier"
+									FontWeight="Bold"
+									Style="{DynamicResource MetroCircleToggleButtonStyle}"
+									IsChecked="{Binding MatchCase, RelativeSource={RelativeSource TemplatedParent}}"
+									ToolTip="{Binding Localization.MatchCaseText, RelativeSource={RelativeSource TemplatedParent}}" />
+								<ToggleButton
+									Width="36"
+									Height="36"
+									Margin="0"
+									Content="Ab"
+									Cursor="Hand"
+									FontFamily="Consolas,Courier New,Courier"
+									FontWeight="Bold"
+									Style="{DynamicResource MetroCircleToggleButtonStyle}"
+									IsChecked="{Binding WholeWords, RelativeSource={RelativeSource TemplatedParent}}"
+									ToolTip="{Binding Localization.MatchWholeWordsText, RelativeSource={RelativeSource TemplatedParent}}" />
+								<ToggleButton
+									Width="36"
+									Height="36"
+									Margin="0"
+									Content="a*"
+									Cursor="Hand"
+									FontFamily="Consolas,Courier New,Courier"
+									FontWeight="Bold"
+									Style="{DynamicResource MetroCircleToggleButtonStyle}"
+									IsChecked="{Binding UseRegex, RelativeSource={RelativeSource TemplatedParent}}"
+									ToolTip="{Binding Localization.UseRegexText, RelativeSource={RelativeSource TemplatedParent}}" />
+							</StackPanel>
+							<Button
+								Width="16"
+								Height="16"
+								Padding="0"
+								HorizontalAlignment="Right"
+								VerticalAlignment="Top"
+								HorizontalContentAlignment="Center"
+								VerticalContentAlignment="Center"
+								Background="#00FFFFFF"
+								Command="editor:SearchCommands.CloseSearchPanel"
+								Cursor="Hand">
+								<Path
+									Width="10"
+									Height="10"
+									Margin="0"
+									Data="F1 M54.0573,47.8776 L38.1771,31.9974 L54.0547,16.1198 C55.7604,14.4141 55.7604,11.6511 54.0573,9.94531 C52.3516,8.23962 49.5859,8.23962 47.8802,9.94531 L32.0026,25.8229 L16.1224,9.94531 C14.4167,8.23962 11.6511,8.23962 9.94794,9.94531 C8.24219,11.6511 8.24219,14.4141 9.94794,16.1198 L25.8255,32 L9.94794,47.8776 C8.24219,49.5834 8.24219,52.3477 9.94794,54.0534 C11.6511,55.7572 14.4167,55.7585 16.1224,54.0534 L32.0026,38.1745 L47.8802,54.0534 C49.5859,55.7585 52.3516,55.7572 54.0573,54.0534 C55.7604,52.3477 55.763,49.5834 54.0573,47.8776 Z"
+									Fill="#FFFF0000"
+									Stretch="Uniform" />
+							</Button>
+						</StackPanel>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

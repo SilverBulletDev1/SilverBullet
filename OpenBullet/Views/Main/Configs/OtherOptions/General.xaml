@@ -1,0 +1,83 @@
+<Page
+	x:Class="OpenBullet.Views.Main.Configs.OtherOptions.General"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:OpenBullet.Views.Main.Configs.OtherOptions"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	Title="ConfigOtherOptionsGeneral">
+	<Grid>
+		<StackPanel>
+			<Label
+				Content="Name"
+				DockPanel.Dock="Top" />
+			<TextBox
+				DockPanel.Dock="Top"
+				Text="{Binding Name}" />
+			<Label
+				DockPanel.Dock="Top"
+				Foreground="{DynamicResource ForegroundRetry}">
+				<DockPanel>
+					<Path
+						Width="14"
+						Height="13"
+						Margin="0,1,5,0"
+						VerticalAlignment="Center"
+						Data="M929.664,875.52 L954.837,850.347 C989.525,815.616 984.277,754.048 943.018,712.832 L423.893,193.707 L255.70100000000002,132.182 C234.58100000000002,124.41699999999999 214.01600000000002,134.486 209.83400000000003,154.582 C209.37400000000002,156.84699999999998 209.11000000000004,159.451 209.11000000000004,162.117 C209.11000000000004,167.233 210.08000000000004,172.122 211.84700000000004,176.611 L211.75400000000005,176.34199999999998 L274.47400000000005,345.985 L792.149,863.702 C833.408,904.918 894.976,910.209 929.664,875.478 M401.237,823.894 C424.80100000000004,823.894 443.904,804.791 443.904,781.227 C443.904,757.6629999999999 424.801,738.56 401.23699999999997,738.56 L230.56999999999996,738.56 C183.44199999999995,738.56 145.23699999999997,700.3549999999999 145.23699999999997,653.227 L145.23699999999997,653.227 L145.23699999999997,141.22699999999998 C145.23699999999997,94.09899999999998 183.44199999999995,55.89399999999998 230.56999999999996,55.89399999999998 L230.56999999999996,55.89399999999998 L742.5699999999999,55.89399999999998 C789.698,55.89399999999998 827.9029999999999,94.09899999999998 827.9029999999999,141.22699999999998 L827.9029999999999,141.22699999999998 L827.9029999999999,311.894 C827.9029999999999,335.458 847.0059999999999,354.56100000000004 870.5699999999999,354.56100000000004 C894.134,354.56100000000004 913.237,335.458 913.237,311.894 L913.237,311.894 L913.237,141.227 C913.237,46.97 836.827,-29.439999999999998 742.5699999999999,-29.439999999999998 L742.5699999999999,-29.439999999999998 L230.56999999999994,-29.439999999999998 C136.31299999999993,-29.439999999999998 59.902999999999935,46.97 59.902999999999935,141.227 L59.902999999999935,141.227 L59.902999999999935,653.227 C59.902999999999935,747.4839999999999 136.31299999999993,823.894 230.56999999999994,823.894 L230.56999999999994,823.894 L401.23699999999997,823.894 Z"
+						Fill="{DynamicResource ForegroundRetry}"
+						Stretch="Fill" />
+					<TextBlock>Author:</TextBlock>
+				</DockPanel>
+			</Label>
+			<TextBox
+				DockPanel.Dock="Top"
+				Text="{Binding Author}" />
+			<Label
+				Content="Additional Information"
+				DockPanel.Dock="Top" />
+			<TextBox
+				Margin="0,0,0,10"
+				DockPanel.Dock="Top"
+				Text="{Binding AdditionalInfo}" />
+			<DockPanel>
+				<Label
+					Content="Suggested Bots" />
+				<xctk:IntegerUpDown
+					Width="50"
+					Margin="10,0,0,0"
+					HorizontalAlignment="Left"
+					Background="#00FFFFFF"
+					Foreground="{DynamicResource ForegroundMain}"
+					Maximum="200"
+					Minimum="1"
+					Value="{Binding SuggestedBots}" />
+			</DockPanel>
+			<DockPanel>
+				<Label
+					Content="Maximum CPM to avoid overloading the website (0 = infinite)" />
+				<xctk:IntegerUpDown
+					Width="100"
+					Margin="10,0,0,0"
+					HorizontalAlignment="Left"
+					Background="#00FFFFFF"
+					Foreground="{DynamicResource ForegroundMain}"
+					Maximum="100000"
+					Minimum="0"
+					Value="{Binding MaxCPM}" />
+			</DockPanel>
+			<CheckBox
+				VerticalContentAlignment="Center"
+				Content="Save empty captures"
+				IsChecked="{Binding SaveEmptyCaptures}" />
+			<CheckBox
+				VerticalContentAlignment="Center"
+				Content="Continue after Custom Status"
+				IsChecked="{Binding ContinueOnCustom}" />
+			<CheckBox
+				VerticalContentAlignment="Center"
+				Content="Save hits to a text file instead of DB (the output can be found in the Hits/ConfigName folder)"
+				IsChecked="{Binding SaveHitsToTextFile}" />
+		</StackPanel>
+	</Grid>
+</Page>

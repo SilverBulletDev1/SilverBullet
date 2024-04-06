@@ -1,0 +1,40 @@
+<UserControl
+	x:Class="OpenBullet.Views.UserControls.Filters.UserControlAdaptiveThreshold"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Margin="0,-6,0,0"
+	xmlns:filters="clr-namespace:OpenBullet.Views.UserControls.Filters"
+	Initialized="UserControl_Initialized">
+	<StackPanel>
+		<Label
+			Content="Max Value:" />
+		<TextBox
+			Name="MaxValueTextBox"
+			Text="255"
+			TextChanged="TextBox_TextChanged" />
+		<Label
+			Content="Adaptive Method:" />
+		<ComboBox
+			Name="AdaptiveMethodComboBox"
+			SelectedIndex="0"
+			SelectionChanged="ComboBox_SelectionChanged" />
+		<Label
+			Content="Threshold Type:" />
+		<ComboBox
+			Name="ThresholdTypeComboBox"
+			SelectedIndex="0"
+			SelectionChanged="ComboBox_SelectionChanged" />
+		<Label
+			Content="Block Size:" />
+		<TextBox
+			Name="BlockSizeTextBox"
+			TextChanged="TextBox_TextChanged" />
+		<Label
+			Content="Constant:" />
+		<TextBox
+			Name="ConstantTextBox"
+			TextChanged="TextBox_TextChanged" />
+	</StackPanel>
+</UserControl>

@@ -1,0 +1,25 @@
+<UserControl
+	x:Class="OpenBullet.Views.UserControls.Filters.UserControlInput"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:OpenBullet.Views.UserControls.Filters"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Margin="0,-6,0,0"
+	Initialized="UserControl_Initialized">
+	<StackPanel>
+		<Label
+			Name="label"
+			Content="Input:" />
+		<TextBox
+			Name="InputTextBox"
+			TextChanged="TextBox_TextChanged" />
+		<ComboBox
+			Name="InputComboBox"
+			Visibility="Collapsed"
+			SelectionChanged="ComboBox_SelectionChanged">
+			<ComboBoxItem>False</ComboBoxItem>
+			<ComboBoxItem>True</ComboBoxItem>
+		</ComboBox>
+	</StackPanel>
+</UserControl>

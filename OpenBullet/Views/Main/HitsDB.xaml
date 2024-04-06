@@ -1,0 +1,509 @@
+<Page
+	x:Class="OpenBullet.Views.Main.HitsDB"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="HitsDB"
+	xmlns:main="clr-namespace:OpenBullet.Views.Main"
+	Loaded="Page_Loaded">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ContextMenu
+				x:Key="ItemContextMenu">
+				<MenuItem
+					x:Name="copyMenu"
+					Header="Copy Selected">
+					<MenuItem.Icon>
+						<iconPacks:PackIconMaterial
+							Kind="ContentCopy" />
+					</MenuItem.Icon>
+					<MenuItem
+						x:Name="copySelectedData"
+						Header="Data"
+						Click="copySelectedData_Click">
+						<MenuItem.Icon>
+							<iconPacks:PackIconMaterial
+								Kind="ContentCopy" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem
+						x:Name="copySelectedProxy"
+						Header="Proxy"
+						Click="copySelectedProxy_Click">
+						<MenuItem.Icon>
+							<iconPacks:PackIconUnicons
+								Kind="ServerConnection" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem
+						x:Name="copySelectedCapture"
+						Header="Data with Capture"
+						Click="copySelectedCapture_Click">
+						<MenuItem.Icon>
+							<iconPacks:PackIconMaterial
+								Kind="CardAccountDetailsOutline" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem
+						x:Name="copySelectedFull"
+						Header="Data (Full)"
+						Click="copySelectedFull_Click">
+						<MenuItem.Icon>
+							<iconPacks:PackIconMaterial
+								Kind="AccountBoxMultipleOutline" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem
+						x:Name="copySelectedCustom"
+						Header="Custom" />
+				</MenuItem>
+				<MenuItem
+					x:Name="saveMenu"
+					Header="Save Selected">
+					<MenuItem.Icon>
+						<iconPacks:PackIconMaterial
+							Kind="ContentSave" />
+					</MenuItem.Icon>
+					<MenuItem
+						x:Name="saveSelectedData"
+						Header="Data"
+						Click="saveSelectedData_Click">
+						<MenuItem.Icon>
+							<iconPacks:PackIconMaterial
+								Kind="ContentSave" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem
+						x:Name="saveSelectedCapture"
+						Header="Data with Capture"
+						Click="saveSelectedCapture_Click">
+						<MenuItem.Icon>
+							<iconPacks:PackIconMaterial
+								Kind="CardAccountDetailsOutline" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem
+						x:Name="saveSelectedFull"
+						Header="Data (Full)"
+						Click="saveSelectedFull_Click">
+						<MenuItem.Icon>
+							<iconPacks:PackIconMaterial
+								Kind="AccountBoxMultipleOutline" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem
+						x:Name="saveSelectedCustom"
+						Header="Custom" />
+				</MenuItem>
+				<MenuItem
+					x:Name="deleteSelected"
+					Header="Delete"
+					Click="deleteSelected_Click">
+					<MenuItem.Icon>
+						<iconPacks:PackIconMaterial
+							Kind="Delete" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem
+					x:Name="selectAll"
+					Header="Select All"
+					Click="selectAll_Click">
+					<MenuItem.Icon>
+						<iconPacks:PackIconModern
+							Kind="ListSelect" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem
+					x:Name="sendToRecheck"
+					Header="Send to Recheck"
+					Click="sendToRecheck_Click">
+					<MenuItem.Icon>
+						<iconPacks:PackIconFontAwesome
+							Kind="ShareSolid" />
+					</MenuItem.Icon>
+				</MenuItem>
+			</ContextMenu>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="40" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="40" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="auto" />
+				<ColumnDefinition
+					Width="auto" />
+				<ColumnDefinition
+					Width="auto" />
+				<ColumnDefinition
+					Width="auto" />
+				<ColumnDefinition
+					Width="2*" />
+				<ColumnDefinition
+					Width="auto" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="auto" />
+				<ColumnDefinition
+					Width="auto" />
+			</Grid.ColumnDefinitions>
+			<Button
+				x:Name="removeDuplicatesButton"
+				Grid.Column="0"
+				Margin="0,5"
+				Click="removeDuplicatesButton_Click">
+				<StackPanel
+					Orientation="Horizontal">
+					<iconPacks:PackIconIonicons
+						Kind="CloseCircleMD" />
+					<TextBlock
+						Margin="5,0"
+						VerticalAlignment="Center">Del. Dupes</TextBlock>
+				</StackPanel>
+			</Button>
+			<Button
+				x:Name="deleteFilteredButton"
+				Grid.Column="1"
+				Margin="0,5"
+				Click="deleteFilteredButton_Click">
+				<StackPanel
+					Orientation="Horizontal">
+					<iconPacks:PackIconMaterial
+						Width="19"
+						Height="21"
+						Kind="FilterRemove" />
+					<TextBlock
+						Margin="5,0"
+						VerticalAlignment="Center">Del. Filtered</TextBlock>
+				</StackPanel>
+			</Button>
+			<Button
+				x:Name="purgeButton"
+				Grid.Column="2"
+				Margin="0,5"
+				Click="purgeButton_Click">
+				<StackPanel
+					Orientation="Horizontal">
+					<iconPacks:PackIconIonicons
+						Kind="CloseMD" />
+					<TextBlock
+						Margin="5,0"
+						VerticalAlignment="Center">Purge</TextBlock>
+				</StackPanel>
+			</Button>
+			<Label
+				Grid.Column="3"
+				Margin="10,0,0,0"
+				VerticalAlignment="Center"
+				Content="Config:" />
+			<ComboBox
+				x:Name="configFilterCombobox"
+				Grid.Column="4"
+				Margin="0,5"
+				SelectionChanged="configFilterCombobox_SelectionChanged" />
+			<Label
+				Grid.Column="5"
+				Margin="10,0,0,0"
+				VerticalAlignment="Center"
+				Content="Type:" />
+			<ComboBox
+				x:Name="typeFilterCombobox"
+				Grid.Column="6"
+				Margin="0,5"
+				SelectionChanged="typeFilterCombobox_SelectionChanged" />
+			<Label
+				Grid.Column="7"
+				Margin="10,0,0,0"
+				VerticalAlignment="Center"
+				Content="Number of Hits:" />
+			<Label
+				Grid.Column="8"
+				VerticalAlignment="Center"
+				FontWeight="Bold"
+				Content="{Binding Filtered}" />
+		</Grid>
+		<ListView
+			x:Name="hitsListView"
+			Grid.Row="1"
+			Background="#00FFFFFF"
+			BorderThickness="1"
+			Foreground="{DynamicResource ForegroundMain}"
+			SelectionMode="Extended"
+			VirtualizingPanel.IsVirtualizing="True"
+			ItemsSource="{Binding Path=HitsCollection}">
+			<FrameworkElement.Style>
+				<Style
+					TargetType="{x:Type ListView}" />
+			</FrameworkElement.Style>
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						x:Key="GridViewColumnHeaderGripper"
+						TargetType="{x:Type Thumb}">
+						<Setter
+							Property="Width"
+							Value="18" />
+						<Setter
+							Property="Background">
+							<Setter.Value>
+								<LinearGradientBrush
+									StartPoint="0,0"
+									EndPoint="0,1">
+									<GradientBrush.GradientStops>
+										<GradientStopCollection>
+											<GradientStop
+												Offset="0.0"
+												Color="{DynamicResource BorderLightColor}" />
+											<GradientStop
+												Offset="1.0"
+												Color="{DynamicResource BorderDarkColor}" />
+										</GradientStopCollection>
+									</GradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type Thumb}">
+									<Border
+										Padding="{TemplateBinding Control.Padding}"
+										Background="#00FFFFFF">
+										<Rectangle
+											Width="1"
+											HorizontalAlignment="Center"
+											Fill="{TemplateBinding Control.Background}" />
+									</Border>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="BorderBrush">
+							<Setter.Value>
+								<LinearGradientBrush
+									StartPoint="0.5,0"
+									EndPoint="0.5,1">
+									<GradientStop
+										Offset="0"
+										Color="Black" />
+									<GradientStop
+										Offset="1"
+										Color="White" />
+								</LinearGradientBrush>
+							</Setter.Value>
+						</Setter>
+					</Style>
+					<Style
+						x:Key="{x:Type GridViewColumnHeader}"
+						TargetType="{x:Type GridViewColumnHeader}">
+						<Setter
+							Property="HorizontalContentAlignment"
+							Value="Left" />
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type GridViewColumnHeader}">
+									<Grid>
+										<Border
+											Background="#00FFFFFF"
+											BorderBrush="#FF000000"
+											BorderThickness="0,0,0,1">
+											<TextBlock
+												x:Name="ContentHeader"
+												Width="{TemplateBinding FrameworkElement.Width}"
+												Padding="5,5,5,0"
+												Text="{TemplateBinding ContentControl.Content}"
+												TextAlignment="Left" />
+										</Border>
+										<Thumb
+											x:Name="PART_HeaderGripper"
+											Margin="0,0,-9,0"
+											HorizontalAlignment="Right"
+											Style="{StaticResource GridViewColumnHeaderGripper}" />
+									</Grid>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="FrameworkElement.OverridesDefaultStyle"
+							Value="True" />
+						<Setter
+							Property="Foreground"
+							Value="{DynamicResource ForegroundMain}" />
+						<Setter
+							Property="FontFamily"
+							Value="pack://application:,,,/Fonts/#Century Gothic" />
+						<Setter
+							Property="FontSize"
+							Value="14" />
+					</Style>
+					<Style
+						x:Key="{x:Type ListViewItem}"
+						TargetType="{x:Type ListViewItem}">
+						<Setter
+							Property="FrameworkElement.ContextMenu"
+							Value="{StaticResource ItemContextMenu}" />
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type ListViewItem}">
+									<Border
+										x:Name="Bd"
+										Padding="0"
+										Background="{TemplateBinding Control.Background}"
+										BorderBrush="{TemplateBinding Control.BorderBrush}"
+										BorderThickness="{TemplateBinding Control.BorderThickness}"
+										SnapsToDevicePixels="True">
+										<GridViewRowPresenter
+											HorizontalAlignment="Left"
+											VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+											SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+									</Border>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Style.Triggers>
+							<Trigger
+								Property="UIElement.IsMouseOver"
+								Value="True">
+								<Setter
+									Property="Background"
+									Value="{DynamicResource BackgroundSecondary}" />
+							</Trigger>
+							<Trigger
+								Property="ListBoxItem.IsSelected"
+								Value="True">
+								<Setter
+									Property="Background"
+									Value="{DynamicResource BackgroundSecondary}" />
+							</Trigger>
+							<EventTrigger
+								RoutedEvent="MouseRightButtonDown"
+								Actions="" />
+						</Style.Triggers>
+						<EventSetter
+							Event="MouseRightButtonDown"
+							Handler="ListViewItem_MouseRightButtonDown" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<VirtualizingStackPanel />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ListView.View>
+				<GridView>
+					<GridViewColumn
+						Width="150"
+						DisplayMemberBinding="{Binding Path=Data}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Data"
+								Click="listViewColumnHeader_Click">Data</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="80"
+						DisplayMemberBinding="{Binding Path=Type}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Type"
+								Click="listViewColumnHeader_Click">Type</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="100"
+						DisplayMemberBinding="{Binding Path=ConfigName}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="ConfigName"
+								Click="listViewColumnHeader_Click">Config</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="90"
+						DisplayMemberBinding="{Binding Path=Date}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Date"
+								Click="listViewColumnHeader_Click">Date</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="100"
+						DisplayMemberBinding="{Binding Path=WordlistName}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="WordlistName"
+								Click="listViewColumnHeader_Click">Wordlist</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="100"
+						DisplayMemberBinding="{Binding Path=Proxy}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Proxy"
+								Click="listViewColumnHeader_Click">Proxy</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="5000"
+						DisplayMemberBinding="{Binding Path=CapturedString}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="CapturedString"
+								Click="listViewColumnHeader_Click">Captured Data</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+				</GridView>
+			</ListView.View>
+		</ListView>
+		<Grid
+			Row="2"
+			Margin="0,5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="auto" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="auto" />
+			</Grid.ColumnDefinitions>
+			<Label
+				Grid.Column="0"
+				Content="Search for Capture:" />
+			<TextBox
+				x:Name="searchBar"
+				Grid.Column="1"
+				Text=""
+				KeyDown="searchBar_KeyDown" />
+			<Button
+				x:Name="searchButton"
+				Grid.Column="2"
+				Click="searchButton_Click">
+				<DockPanel>
+					<iconPacks:PackIconFontAwesome
+						Kind="SearchSolid" />
+					<TextBlock
+						Margin="5,0,0,0">Search</TextBlock>
+				</DockPanel>
+			</Button>
+		</Grid>
+	</Grid>
+</Page>

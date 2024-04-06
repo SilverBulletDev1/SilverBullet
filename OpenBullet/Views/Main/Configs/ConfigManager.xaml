@@ -1,0 +1,564 @@
+<Page
+	x:Class="OpenBullet.Views.Main.Configs.ConfigManager"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:iconsPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
+	xmlns:local="clr-namespace:OpenBullet.Views.Main.Configs"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="ConfigManager">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="30" />
+			<RowDefinition
+				Height="40" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="80" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<StackPanel
+				Grid.Column="0"
+				Orientation="Horizontal">
+				<Label
+					Content="Current Config:"
+					FontWeight="Bold" />
+				<Label
+					Height="26"
+					FontWeight="Bold"
+					Content="{Binding CurrentConfigName}" />
+			</StackPanel>
+			<StackPanel
+				Grid.Column="1"
+				Orientation="Horizontal">
+				<Label
+					VerticalAlignment="Center"
+					Content="Total Configs:"
+					FontWeight="Bold" />
+				<Label
+					VerticalAlignment="Center"
+					Content="{Binding Total}" />
+			</StackPanel>
+		</Grid>
+		<Grid
+			Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="0.78*" />
+				<ColumnDefinition
+					Width="30" />
+				<ColumnDefinition
+					Width="auto" />
+			</Grid.ColumnDefinitions>
+			<StackPanel
+				Grid.Column="0"
+				Orientation="Horizontal">
+				<Button
+					x:Name="newConfigButton"
+					Click="newConfigButton_Click">
+					<StackPanel
+						Orientation="Horizontal">
+						<Image
+							Width="20"
+							RenderOptions.BitmapScalingMode="LowQuality"
+							RenderOptions.EdgeMode="Aliased"
+							Source="/Images/Icons/add-32.png"
+							UseLayoutRounding="True" />
+						<TextBlock
+							Margin="5,0"
+							VerticalAlignment="Center">New</TextBlock>
+					</StackPanel>
+				</Button>
+				<Button
+					x:Name="loadConfigButton"
+					Click="loadConfigButton_Click">
+					<StackPanel
+						Orientation="Horizontal">
+						<Image
+							Width="20"
+							RenderOptions.BitmapScalingMode="LowQuality"
+							Source="/Images/Icons/gears.png" />
+						<TextBlock
+							Margin="5,0"
+							VerticalAlignment="Center">Edit</TextBlock>
+					</StackPanel>
+				</Button>
+				<Button
+					x:Name="saveConfigButton"
+					Click="saveConfigButton_Click">
+					<StackPanel
+						Orientation="Horizontal">
+						<iconsPack:PackIconFontAwesome
+							Width="22"
+							Height="21"
+							Foreground="#FFFFFFFF"
+							Kind="SaveRegular" />
+						<TextBlock
+							Margin="5,0"
+							VerticalAlignment="Center">Save</TextBlock>
+					</StackPanel>
+				</Button>
+				<Button
+					x:Name="deleteConfigsButton"
+					Click="deleteConfigsButton_Click">
+					<StackPanel
+						Orientation="Horizontal">
+						<iconsPack:PackIconMaterial
+							Width="20"
+							Height="18"
+							Foreground="#FFFFFFFF"
+							Kind="Close" />
+						<TextBlock
+							Margin="5,0"
+							VerticalAlignment="Center">Delete</TextBlock>
+					</StackPanel>
+				</Button>
+			</StackPanel>
+			<Grid
+				Column="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<TextBox
+					x:Name="filterTextbox"
+					Text="{Binding SearchString}"
+					KeyDown="filterTextbox_KeyDown"
+					TextChanged="filterTextbox_TextChanged" />
+				<Button
+					x:Name="searchButton"
+					Grid.Column="1"
+					Click="searchButton_Click">
+					<StackPanel
+						Orientation="Horizontal">
+						<iconsPack:PackIconFontAwesome
+							Width="20"
+							Height="19"
+							Foreground="#FFFFFFFF"
+							Kind="SearchSolid" />
+						<TextBlock
+							Margin="5,0"
+							VerticalAlignment="Center">Search</TextBlock>
+					</StackPanel>
+				</Button>
+			</Grid>
+			<StackPanel
+				Grid.Column="3"
+				Orientation="Horizontal">
+				<Button
+					x:Name="openConfigFolderButton"
+					ToolTip="Open the root folder where Configs are stored"
+					Click="openConfigFolderButton_Click">
+					<StackPanel
+						Orientation="Horizontal">
+						<iconsPack:PackIconMaterial
+							Width="21"
+							Height="21"
+							Foreground="#FFFFFFFF"
+							Kind="FolderMultiple" />
+						<TextBlock
+							Margin="5,0"
+							VerticalAlignment="Center">Open Folder</TextBlock>
+					</StackPanel>
+				</Button>
+				<Button
+					x:Name="rescanConfigsButton"
+					ToolTip="Scan the Config folder again and update the list"
+					Click="rescanConfigsButton_Click">
+					<StackPanel
+						Orientation="Horizontal">
+						<Image
+							Width="21"
+							RenderOptions.BitmapScalingMode="HighQuality"
+							RenderOptions.EdgeMode="Aliased"
+							Source="/Images/Icons/scan.png" />
+						<TextBlock
+							Margin="5,0"
+							VerticalAlignment="Center">Rescan</TextBlock>
+					</StackPanel>
+				</Button>
+			</StackPanel>
+		</Grid>
+		<ListView
+			x:Name="configsListView"
+			Grid.Row="2"
+			AllowDrop="True"
+			Background="#00FFFFFF"
+			BorderThickness="1"
+			Foreground="{DynamicResource ForegroundMain}"
+			SelectionMode="Extended"
+			VirtualizingPanel.IsVirtualizing="True"
+			ItemsSource="{Binding Path=ConfigsCollection}"
+			DragEnter="configsListView_DragEnter"
+			Drop="configsListView_Drop"
+			SelectionChanged="configsListView_SelectionChanged">
+			<FrameworkElement.ContextMenu>
+				<ContextMenu>
+					<MenuItem
+						Name="pasteConfig"
+						Click="pasteConfig_Click">
+						<MenuItem.Icon>
+							<iconsPack:PackIconFontAwesome
+								Foreground="{DynamicResource ForegroundMain}"
+								Kind="PasteSolid" />
+						</MenuItem.Icon>
+						<HeaderedItemsControl.Header>
+							<TextBlock
+								Margin="0,0,0,0">Paste Ctrl+V</TextBlock>
+						</HeaderedItemsControl.Header>
+					</MenuItem>
+				</ContextMenu>
+			</FrameworkElement.ContextMenu>
+			<FrameworkElement.Style>
+				<Style
+					TargetType="{x:Type ListView}" />
+			</FrameworkElement.Style>
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						x:Key="GridViewColumnHeaderGripper"
+						TargetType="{x:Type Thumb}">
+						<Setter
+							Property="Width"
+							Value="18" />
+						<Setter
+							Property="Background">
+							<Setter.Value>
+								<LinearGradientBrush
+									StartPoint="0,0"
+									EndPoint="0,1">
+									<GradientBrush.GradientStops>
+										<GradientStopCollection>
+											<GradientStop
+												Offset="0.0"
+												Color="{DynamicResource BorderLightColor}" />
+											<GradientStop
+												Offset="1.0"
+												Color="{DynamicResource BorderDarkColor}" />
+										</GradientStopCollection>
+									</GradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type Thumb}">
+									<Border
+										Padding="{TemplateBinding Control.Padding}"
+										Background="#00FFFFFF">
+										<Rectangle
+											Width="1"
+											HorizontalAlignment="Center"
+											Fill="{TemplateBinding Control.Background}" />
+									</Border>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="BorderBrush">
+							<Setter.Value>
+								<LinearGradientBrush
+									StartPoint="0.5,0"
+									EndPoint="0.5,1">
+									<GradientStop
+										Offset="0"
+										Color="Black" />
+									<GradientStop
+										Offset="1"
+										Color="White" />
+								</LinearGradientBrush>
+							</Setter.Value>
+						</Setter>
+					</Style>
+					<Style
+						x:Key="{x:Type GridViewColumnHeader}"
+						TargetType="{x:Type GridViewColumnHeader}">
+						<Setter
+							Property="HorizontalContentAlignment"
+							Value="Left" />
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type GridViewColumnHeader}">
+									<Grid>
+										<Border
+											Background="#00FFFFFF"
+											BorderBrush="#FF000000"
+											BorderThickness="0,0,0,1">
+											<TextBlock
+												x:Name="ContentHeader"
+												Width="{TemplateBinding FrameworkElement.Width}"
+												Padding="5,5,5,0"
+												Text="{TemplateBinding ContentControl.Content}"
+												TextAlignment="Left" />
+										</Border>
+										<Thumb
+											x:Name="PART_HeaderGripper"
+											Margin="0,0,-9,0"
+											HorizontalAlignment="Right"
+											Style="{StaticResource GridViewColumnHeaderGripper}" />
+									</Grid>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="FrameworkElement.OverridesDefaultStyle"
+							Value="True" />
+						<Setter
+							Property="Foreground"
+							Value="{DynamicResource ForegroundMain}" />
+						<Setter
+							Property="FontFamily"
+							Value="pack://application:,,,/Fonts/#Century Gothic" />
+						<Setter
+							Property="FontSize"
+							Value="14" />
+					</Style>
+					<Style
+						x:Key="{x:Type ListViewItem}"
+						TargetType="{x:Type ListViewItem}">
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type ListViewItem}">
+									<Border
+										x:Name="Bd"
+										Padding="0"
+										Background="{TemplateBinding Control.Background}"
+										BorderBrush="{TemplateBinding Control.BorderBrush}"
+										BorderThickness="{TemplateBinding Control.BorderThickness}"
+										SnapsToDevicePixels="True">
+										<GridViewRowPresenter
+											HorizontalAlignment="Left"
+											VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+											SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+									</Border>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Style.Triggers>
+							<Trigger
+								Property="UIElement.IsMouseOver"
+								Value="True">
+								<Setter
+									Property="Background"
+									Value="{DynamicResource BackgroundSecondary}" />
+							</Trigger>
+							<Trigger
+								Property="ListBoxItem.IsSelected"
+								Value="True">
+								<Setter
+									Property="Background"
+									Value="{DynamicResource BackgroundSecondary}" />
+							</Trigger>
+						</Style.Triggers>
+						<EventSetter
+							Event="MouseDoubleClick"
+							Handler="ListViewItem_MouseDoubleClick" />
+						<EventSetter
+							Event="KeyDown"
+							Handler="ListViewItem_KeyDown" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<VirtualizingStackPanel />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ListView.View>
+				<GridView>
+					<GridViewColumn
+						DisplayMemberBinding="{Binding Path=Config.Settings.Name}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.Settings.Name"
+								Click="listViewColumnHeader_Click">Name</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						DisplayMemberBinding="{Binding Path=Config.Settings.Author}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.Settings.Author"
+								Click="listViewColumnHeader_Click">Author</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="180"
+						DisplayMemberBinding="{Binding Path=Category}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Category"
+								Click="listViewColumnHeader_Click">Category</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						DisplayMemberBinding="{Binding Path=Config.Settings.NeedsProxies}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.Settings.NeedsProxies"
+								Click="listViewColumnHeader_Click">Proxies</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						DisplayMemberBinding="{Binding Path=Config.CaptchasNeeded}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.CaptchasNeeded"
+								Click="listViewColumnHeader_Click">Captchas</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						DisplayMemberBinding="{Binding Path=Config.SeleniumPresent}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.SeleniumPresent"
+								Click="listViewColumnHeader_Click">Selenium</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="40"
+						DisplayMemberBinding="{Binding Path=Config.OcrNeeded}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.OcrNeeded"
+								Click="listViewColumnHeader_Click">OCR</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						DisplayMemberBinding="{Binding Path=Config.HasCFBypass}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.HasCFBypass"
+								Click="listViewColumnHeader_Click">CF</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="200"
+						DisplayMemberBinding="{Binding Path=Config.Settings.LastModified}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Tag="Config.Settings.LastModified"
+								Click="listViewColumnHeader_Click">Last Modified</GridViewColumnHeader>
+						</GridViewColumn.Header>
+					</GridViewColumn>
+				</GridView>
+			</ListView.View>
+		</ListView>
+		<Grid
+			Row="3">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<StackPanel
+				Grid.Row="0"
+				Grid.Column="0"
+				Orientation="Horizontal">
+				<Label
+					Content="Allowed Wordlists:" />
+				<Label
+					Content="{Binding HoveredConfig.AllowedWordlists}" />
+			</StackPanel>
+			<StackPanel
+				Grid.Row="1"
+				Grid.Column="0"
+				Orientation="Horizontal">
+				<Label
+					Content="Blocks Amount:" />
+				<Label
+					Content="{Binding HoveredConfig.BlocksAmount}" />
+			</StackPanel>
+			<StackPanel
+				Grid.Row="2"
+				Grid.Column="0"
+				Grid.ColumnSpan="3"
+				Orientation="Horizontal">
+				<Label
+					Content="Additional Info:" />
+				<Label
+					Content="{Binding HoveredConfig.Settings.AdditionalInfo}" />
+			</StackPanel>
+			<StackPanel
+				Grid.Row="0"
+				Grid.Column="1"
+				Orientation="Horizontal">
+				<Label
+					Content="Last Modified:" />
+				<Label
+					Content="{Binding HoveredConfig.LastModifiedString}" />
+			</StackPanel>
+			<StackPanel
+				Grid.Row="1"
+				Grid.Column="1"
+				Orientation="Horizontal">
+				<Label
+					Content="Suggested Bots:" />
+				<Label
+					Content="{Binding HoveredConfig.Settings.SuggestedBots}" />
+			</StackPanel>
+			<StackPanel
+				Grid.Row="0"
+				Grid.Column="2"
+				Orientation="Horizontal">
+				<Label
+					Content="Built with version:" />
+				<Label
+					Content="{Binding HoveredConfig.Settings.Version}" />
+			</StackPanel>
+			<StackPanel
+				Grid.Row="1"
+				Grid.Column="2"
+				Orientation="Horizontal">
+				<Label
+					Foreground="{DynamicResource ForegroundRetry}">
+					<DockPanel>
+						<Path
+							Width="14"
+							Height="13"
+							Margin="0,0,5,0"
+							VerticalAlignment="Center"
+							Data="M929.664,875.52 L954.837,850.347 C989.525,815.616 984.277,754.048 943.018,712.832 L423.893,193.707 L255.70100000000002,132.182 C234.58100000000002,124.41699999999999 214.01600000000002,134.486 209.83400000000003,154.582 C209.37400000000002,156.84699999999998 209.11000000000004,159.451 209.11000000000004,162.117 C209.11000000000004,167.233 210.08000000000004,172.122 211.84700000000004,176.611 L211.75400000000005,176.34199999999998 L274.47400000000005,345.985 L792.149,863.702 C833.408,904.918 894.976,910.209 929.664,875.478 M401.237,823.894 C424.80100000000004,823.894 443.904,804.791 443.904,781.227 C443.904,757.6629999999999 424.801,738.56 401.23699999999997,738.56 L230.56999999999996,738.56 C183.44199999999995,738.56 145.23699999999997,700.3549999999999 145.23699999999997,653.227 L145.23699999999997,653.227 L145.23699999999997,141.22699999999998 C145.23699999999997,94.09899999999998 183.44199999999995,55.89399999999998 230.56999999999996,55.89399999999998 L230.56999999999996,55.89399999999998 L742.5699999999999,55.89399999999998 C789.698,55.89399999999998 827.9029999999999,94.09899999999998 827.9029999999999,141.22699999999998 L827.9029999999999,141.22699999999998 L827.9029999999999,311.894 C827.9029999999999,335.458 847.0059999999999,354.56100000000004 870.5699999999999,354.56100000000004 C894.134,354.56100000000004 913.237,335.458 913.237,311.894 L913.237,311.894 L913.237,141.227 C913.237,46.97 836.827,-29.439999999999998 742.5699999999999,-29.439999999999998 L742.5699999999999,-29.439999999999998 L230.56999999999994,-29.439999999999998 C136.31299999999993,-29.439999999999998 59.902999999999935,46.97 59.902999999999935,141.227 L59.902999999999935,141.227 L59.902999999999935,653.227 C59.902999999999935,747.4839999999999 136.31299999999993,823.894 230.56999999999994,823.894 L230.56999999999994,823.894 L401.23699999999997,823.894 Z"
+							Fill="{DynamicResource ForegroundRetry}"
+							Stretch="Fill" />
+						<TextBlock>Author:</TextBlock>
+					</DockPanel>
+				</Label>
+				<Label
+					Margin="-3,0,0,0"
+					Foreground="{DynamicResource ForegroundRetry}"
+					Content="{Binding HoveredConfig.Settings.Author}" />
+			</StackPanel>
+		</Grid>
+	</Grid>
+</Page>
