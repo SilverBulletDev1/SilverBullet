@@ -32,4 +32,4 @@ You can find the executables inside the folders OpenBullet/bin/Release and OpenB
 ### License
 This software is licensed under the [MIT License](https://github.com/SilverBulletDev1/SilverBullet?tab=MIT-1-ov-file#MIT-1-ov-file).
 
-[DOWNLOAD SilverBullet v1.1.4](https://mega.nz/file/UWNFFDxZ#iThVjANExDeskXeO1gYi4oj6tC7BZd5gcMFO7pYMkYU)
+[DOWNLOAD SilverBullet v1.1.4](https://github.com/SilverBulletDev1/SilverBullet/releases/download/1.1.4/SilverBullet.v1.1.4.zip)
