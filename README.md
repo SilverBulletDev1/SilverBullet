@@ -8,7 +8,6 @@
 </p>
 <h1 align="center">SilverBullet v1.1.4</h1>
 
-
 <h2 align="center">Screenshot</h2>
 
 ![SilverBullet](https://github.com/SilverBulletDev1/SilverBullet/assets/166245487/79d2996a-902c-4b7b-b1eb-6aec669fc44d)
