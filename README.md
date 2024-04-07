@@ -1,4 +1,3 @@
-<h1 align="center">SilverBullet v1.1.4</h1>
 <p align= "center">
    <img src="https://img.shields.io/badge/Release-1.4.4-black">
    <img src="https://img.shields.io/github/license/SilverBulletDev1/SilverBullet?color=black">
@@ -7,10 +6,12 @@
 
    <br>
 </p>
+<h1 align="center">SilverBullet v1.1.4</h1>
+
 
 <h2 align="center">Screenshot</h2>
 
-![silverbullet](https://github.com/SilverBulletDev1/SilverBullet/assets/166245487/599d49fb-6c73-49a4-a1cb-a0f8505ba35f)
+![SilverBullet](https://github.com/SilverBulletDev1/SilverBullet/assets/166245487/79d2996a-902c-4b7b-b1eb-6aec669fc44d)
 
 SilverBullet is a webtesting suite that allows to perform requests towards a target webapp and offers a lot of tools to work with the results. This software can be used for scraping and parsing data, automated pentesting, unit testing through selenium and much more.
 IMPORTANT! Performing (D)DoS attacks or credential stuffing on sites you do not own (or you do not have permission to test) is illegal! The developer will not be held responsible for improper use of this software.
